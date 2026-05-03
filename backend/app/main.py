@@ -266,7 +266,7 @@ async def report_status(
     except KeyError:
         framework = None
     total_controls = len(framework.controls) if framework else len(report.findings)
-    completed = len(report.findings) if report.status == "complete" else 0
+    completed = len(report.findings)
     return ReportStatusPayload(
         status=report.status,
         completed_controls=completed,

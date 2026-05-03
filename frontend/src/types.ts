@@ -18,36 +18,38 @@ export type Session = {
   id: string;
   name: string;
   created_at: string;
-  updated_at: string;
 };
 
 export type Document = {
   id: string;
   session_id: string;
   filename: string;
-  content_type: string;
-  status: string;
-  text: string;
-  chunk_count: number;
-  created_at: string;
+  file_type: string;
+  status: "uploading" | "parsing" | "ready" | "error";
+  parsed_text: string | null;
+  chunks: any[];
+  error_message: string | null;
 };
 
 export type Finding = {
-  id: string;
-  report_id: string;
+  id?: string;
+  report_id?: string;
   control_id: string;
   status: "pass" | "partial" | "fail" | "insufficient_evidence";
   confidence: number;
   evidence: string;
   gap: string;
   remediation: string;
+  provider?: string;
+  model?: string;
+  mode?: string;
 };
 
 export type Report = {
   id: string;
   session_id: string;
   framework_id: string;
-  framework_name?: string; // Optional helper
+  framework_name?: string;
   status: "running" | "complete" | "error";
   overall_score: number | null;
   pass_count: number;
@@ -59,19 +61,18 @@ export type Report = {
   created_at: string;
 };
 
-
 export type ChatMessage = {
   id: string;
   session_id: string;
   role: "user" | "assistant";
   content: string;
-  citations: string[];
-  provider: string;
-  model: string;
   created_at: string;
 };
 
 export type ChatResponse = {
-  message: ChatMessage;
-  mode: "live" | "fallback";
+  role: string;
+  content: string;
+  provider: string;
 };
+
+// Made with Bob

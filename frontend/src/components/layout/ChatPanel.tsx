@@ -22,10 +22,7 @@ export default function ChatPanel() {
       session_id: currentSession.id,
       role: 'user' as const,
       content: input,
-      citations: [],
       created_at: new Date().toISOString(),
-      provider: 'user',
-      model: 'user'
     };
 
     setMessages((prev) => [...prev, userMsg]);
@@ -33,8 +30,15 @@ export default function ChatPanel() {
     setBusy(true);
 
     try {
-      const response = await sendChat(currentSession.id, input, report?.id);
-      setMessages((prev) => [...prev, response.message]);
+      const response = await sendChat(currentSession.id, input);
+      const assistantMsg = {
+        id: `a-${Date.now()}`,
+        session_id: currentSession.id,
+        role: 'assistant' as const,
+        content: response.content,
+        created_at: new Date().toISOString(),
+      };
+      setMessages((prev) => [...prev, assistantMsg]);
     } catch (err) {
       console.error(err);
     } finally {
@@ -71,13 +75,6 @@ export default function ChatPanel() {
               </span>
             </div>
             <p className="text-sm text-ink font-body leading-relaxed">{m.content}</p>
-            {m.citations && m.citations.length > 0 && (
-              <div className="mt-2 pt-2 border-t border-purple/10 flex flex-wrap gap-2">
-                {m.citations.map((c, i) => (
-                  <span key={i} className="font-mono text-[9px] text-purple">[{c}]</span>
-                ))}
-              </div>
-            )}
           </div>
         ))}
         {busy && (
@@ -128,3 +125,5 @@ export default function ChatPanel() {
     </aside>
   );
 }
+
+// Made with Bob

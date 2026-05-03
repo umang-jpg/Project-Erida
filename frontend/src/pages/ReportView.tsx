@@ -122,7 +122,7 @@ export default function ReportView() {
           <div className="relative z-10 space-y-4">
             <div className="flex items-center gap-2">
               <div className="w-1 h-4 bg-cyan rounded-full" />
-              <h3 className="panel-label !mb-0">IBM BOB EXECUTIVE SUMMARY</h3>
+              <h3 className="panel-label !mb-0">GROQ AI EXECUTIVE SUMMARY</h3>
             </div>
             <p className="text-xl text-ink leading-relaxed font-body italic">
               "{report.executive_summary}"

@@ -1,13 +1,31 @@
 import React from 'react';
 import { Upload } from 'lucide-react';
 import { useSessionStore } from '../../store/useSessionStore';
+import { uploadDocument } from '../../api';
 
 export default function DocumentUpload() {
-  const { setFiles, busy } = useSessionStore();
+  const { currentSession, setDocuments, setStatusText, setBusy, busy } = useSessionStore();
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setFiles(Array.from(e.target.files));
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || !currentSession) return;
+    
+    const files = Array.from(e.target.files);
+    setBusy(true);
+    setStatusText(`Uploading ${files.length} document(s)...`);
+
+    try {
+      const uploadPromises = files.map(file => uploadDocument(currentSession.id, file));
+      const uploadedDocs = await Promise.all(uploadPromises);
+      
+      setDocuments(prev => [...prev, ...uploadedDocs]);
+      setStatusText(`Successfully uploaded ${files.length} document(s)`);
+    } catch (err: any) {
+      console.error(err);
+      setStatusText(`Upload failed: ${err.message}`);
+    } finally {
+      setBusy(false);
+      // Reset input
+      e.target.value = '';
     }
   };
 
@@ -27,10 +45,12 @@ export default function DocumentUpload() {
           multiple
           className="absolute inset-0 opacity-0 cursor-pointer disabled:cursor-not-allowed"
           onChange={handleFileChange}
-          disabled={busy}
+          disabled={busy || !currentSession}
           accept=".pdf,.txt,.md"
         />
       </div>
     </div>
   );
 }
+
+// Made with IBM BOB

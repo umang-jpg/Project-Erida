@@ -18,7 +18,7 @@ export default function Sidebar() {
   return (
     <aside className="app-sidebar w-64 flex flex-col border-r border-cyan-dim" style={{ background: 'rgba(5,8,12,0.9)' }}>
       <div className="p-6 border-b border-cyan-dim">
-        <h1 className="font-heading text-sm tracking-[4px] glow-text">COMPLIANCE<br/>AUTOPILOT</h1>
+        <h1 className="font-heading text-sm tracking-[4px] glow-text">ERIDA</h1>
         <p className="text-[10px] font-mono text-ink-muted mt-2 tracking-widest">POWERED BY IBM BOB</p>
       </div>
       <nav className="flex-1 p-4 space-y-1">
@@ -50,3 +50,5 @@ export default function Sidebar() {
     </aside>
   );
 }
+
+// Made with Bob

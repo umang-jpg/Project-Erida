@@ -1,6 +1,6 @@
-import type { ChatMessage, ChatResponse, Document, Framework, Report, Session } from "./types";
+import type { ChatMessage, Document, Framework, Report, Session } from "./types";
 
-const API_BASE = "http://localhost:8000/api";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api";
 
 async function parseJson<T>(responsePromise: Promise<Response>): Promise<T> {
   const response = await responsePromise;
@@ -37,13 +37,11 @@ export async function getSession(id: string): Promise<Session> {
   return parseJson(fetch(`${API_BASE}/sessions/${id}`));
 }
 
-
-export async function uploadDocuments(sessionId: string, files: File[]): Promise<Document[]> {
+export async function uploadDocument(sessionId: string, file: File): Promise<Document> {
   const formData = new FormData();
-  formData.append("session_id", sessionId);
-  files.forEach((file) => formData.append("files", file));
+  formData.append("file", file);
   return parseJson(
-    fetch(`${API_BASE}/documents`, {
+    fetch(`${API_BASE}/documents?session_id=${encodeURIComponent(sessionId)}`, {
       method: "POST",
       body: formData,
     }),
@@ -72,7 +70,6 @@ export async function getReportStatus(id: string): Promise<{ status: string; com
   return parseJson(fetch(`${API_BASE}/reports/${id}/status`));
 }
 
-
 export async function seedDemo(): Promise<{ session_id: string; report_id: string }> {
   return parseJson(
     fetch(`${API_BASE}/demo/seed`, {
@@ -81,13 +78,12 @@ export async function seedDemo(): Promise<{ session_id: string; report_id: strin
   );
 }
 
-
-export async function sendChat(sessionId: string, message: string, reportId?: string): Promise<ChatResponse> {
+export async function sendChat(sessionId: string, message: string): Promise<{ role: string; content: string; provider: string }> {
   return parseJson(
     fetch(`${API_BASE}/sessions/${sessionId}/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message, report_id: reportId }),
+      body: JSON.stringify({ message }),
     }),
   );
 }
@@ -96,10 +92,12 @@ export async function listMessages(sessionId: string): Promise<ChatMessage[]> {
   return parseJson(fetch(`${API_BASE}/sessions/${sessionId}/messages`));
 }
 
-export async function draftRemediation(findingId: string): Promise<{ remediation: string; mode: string }> {
+export async function draftRemediation(findingId: string): Promise<{ remediation: string; provider: string }> {
   return parseJson(
     fetch(`${API_BASE}/findings/${findingId}/draft-remediation`, {
       method: "POST",
     }),
   );
 }
+
+// Made with Bob

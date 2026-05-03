@@ -170,7 +170,7 @@ export default function FindingsTable() {
                       className="hud-btn flex items-center gap-2"
                       onClick={() => handleAskAI(finding)}
                     >
-                      <MessageSquare className="w-4 h-4" /> QUERY BOB
+                      <MessageSquare className="w-4 h-4" /> QUERY AI
                     </button>
                   </div>
                 </div>

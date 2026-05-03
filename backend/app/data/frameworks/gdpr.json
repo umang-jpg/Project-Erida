@@ -1,0 +1,148 @@
+{
+  "id": "gdpr-essentials-v1",
+  "name": "GDPR Essentials",
+  "version": "1.0",
+  "description": "High-signal GDPR articles mapped to actionable controls for MVP assessments.",
+  "controls": [
+    {
+      "control_id": "GDPR-Art-5",
+      "name": "Principles of Processing",
+      "description": "Personal data must be processed lawfully, fairly, transparently, limited to purpose, accurate, minimized, securely stored, and not kept longer than necessary.",
+      "severity": "critical",
+      "category": "Data Processing Principles"
+    },
+    {
+      "control_id": "GDPR-Art-6",
+      "name": "Lawfulness of Processing",
+      "description": "Controllers must identify and document at least one legal basis before processing begins and retain accountability evidence.",
+      "severity": "critical",
+      "category": "Lawful Basis"
+    },
+    {
+      "control_id": "GDPR-Art-7",
+      "name": "Conditions for Consent",
+      "description": "Where consent is the basis for processing it must be freely given, informed, specific, granular, documented, withdrawable at any time, and evidenced.",
+      "severity": "high",
+      "category": "Consent"
+    },
+    {
+      "control_id": "GDPR-Art-12",
+      "name": "Transparent Communication",
+      "description": "Information provided to data subjects must be concise, understandable, transparent, accessible, delivered in timely fashion, generally free.",
+      "severity": "medium",
+      "category": "Transparency"
+    },
+    {
+      "control_id": "GDPR-Art-13",
+      "name": "Information Provided at Collection",
+      "description": "At collection, controllers disclose identity/contact, purposes/legal basis, recipients, retention, rights, safeguards for transfers and whether automated profiling exists.",
+      "severity": "high",
+      "category": "Transparency"
+    },
+    {
+      "control_id": "GDPR-Art-14",
+      "name": "Information Provided When Data Not Obtained Directly",
+      "description": "When data collected indirectly controllers must proactively inform subjects with required disclosures within a reasonable period unless exceptions strictly apply.",
+      "severity": "high",
+      "category": "Transparency"
+    },
+    {
+      "control_id": "GDPR-Art-15",
+      "name": "Right of Access",
+      "description": "Controllers must honour access requests confirming processing, granting copies, describing purposes, recipients, retention, safeguards, sources, profiling logic.",
+      "severity": "high",
+      "category": "Data Subject Rights"
+    },
+    {
+      "control_id": "GDPR-Art-16",
+      "name": "Right to Rectification",
+      "description": "Inaccurate data must be corrected without undue delay; incomplete personal data completed when purpose requires completeness.",
+      "severity": "medium",
+      "category": "Data Subject Rights"
+    },
+    {
+      "control_id": "GDPR-Art-17",
+      "name": "Right to Erasure",
+      "description": "Erasure honoured without undue delay when grounds arise; documentation of exemptions, cascading instructions to subprocessors/third parties mandatory.",
+      "severity": "high",
+      "category": "Data Subject Rights"
+    },
+    {
+      "control_id": "GDPR-Art-18",
+      "name": "Right to Restriction",
+      "description": "Processing must be halted or marked restricted pending disputes, wrongful processing claims, portability requests, objections; restrictions communicated downstream.",
+      "severity": "medium",
+      "category": "Data Subject Rights"
+    },
+    {
+      "control_id": "GDPR-Art-20",
+      "name": "Right to Data Portability",
+      "description": "Where lawful basis contractual/consent controllers provide structured commonly used machine readable data and transmit to controllers when technically feasible.",
+      "severity": "medium",
+      "category": "Data Subject Rights"
+    },
+    {
+      "control_id": "GDPR-Art-21",
+      "name": "Right to Object",
+      "description": "Controllers must uphold objections to profiling/direct marketing/processes unless compelling legitimate grounds demonstrated and documented outweighing impacts.",
+      "severity": "high",
+      "category": "Data Subject Rights"
+    },
+    {
+      "control_id": "GDPR-Art-25",
+      "name": "Data Protection by Design and Default",
+      "description": "Implement appropriate technical organisational measures proactively minimising processed data exposing only necessity default settings aligning with GDPR.",
+      "severity": "critical",
+      "category": "Security & Architecture"
+    },
+    {
+      "control_id": "GDPR-Art-26",
+      "name": "Joint Controllers",
+      "description": "Joint controllers must transparently define responsibilities and provide single contact point respecting data subject simplicity without shifting accountability.",
+      "severity": "medium",
+      "category": "Governance"
+    },
+    {
+      "control_id": "GDPR-Art-28",
+      "name": "Processor Agreements",
+      "description": "Written contracts binding processors on instructions confidentiality security subprocessors breaches assistance deletion portability audits necessary measures.",
+      "severity": "high",
+      "category": "Processors"
+    },
+    {
+      "control_id": "GDPR-Art-30",
+      "name": "Records of Processing",
+      "description": "Maintain internal records documenting purposes categories recipients transfers safeguards retention DPIA summaries cross-border safeguards unless exemptions extremely narrow.",
+      "severity": "high",
+      "category": "Accountability"
+    },
+    {
+      "control_id": "GDPR-Art-32",
+      "name": "Security of Processing",
+      "description": "State of art safeguards including pseudonymisation encryption resilience continuous testing confidentiality integrity availability incident capable policies.",
+      "severity": "critical",
+      "category": "Security"
+    },
+    {
+      "control_id": "GDPR-Art-33",
+      "name": "Breach Notification to Authority",
+      "description": "Personal data breaches must be communicated to supervisory authority within 72 hours unless unlikely to risk documenting records for individuals when high risk persists.",
+      "severity": "critical",
+      "category": "Incidents"
+    },
+    {
+      "control_id": "GDPR-Art-35",
+      "name": "Data Protection Impact Assessment",
+      "description": "Where processing creates high risks controllers evaluate necessity proportionality safeguards mitigations consult supervisory authority escalation path.",
+      "severity": "critical",
+      "category": "Risk Management"
+    },
+    {
+      "control_id": "GDPR-Art-44",
+      "name": "Restrictions on Cross-Border Transfers",
+      "description": "Transfers outside EEA rely on adequate decisions SCCs UK IDTA binding corporate rules safeguards ensuring enforceable obligations equivalent protection.",
+      "severity": "high",
+      "category": "Transfers"
+    }
+  ]
+}

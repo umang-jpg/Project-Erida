@@ -1,0 +1,43 @@
+{
+  "id": "hipaa-security-v1",
+  "name": "HIPAA Security Rule Safeguards",
+  "version": "1.0",
+  "description": "Foundational HIPAA Security Rule safeguards bundle for demos and prototyping.",
+  "controls": [
+    {
+      "control_id": "HIPAA-164.308-a-1-i",
+      "name": "Security management process risk analysis",
+      "description": "Conduct accurate thorough assessment risks vulnerabilities to PHI confidentiality integrity availability.",
+      "severity": "critical",
+      "category": "Administrative"
+    },
+    {
+      "control_id": "HIPAA-164.310-a-1-ii",
+      "name": "Facility access safeguards",
+      "description": "Policies procedures facility access controls workstations device security visitors hardware logs.",
+      "severity": "high",
+      "category": "Physical"
+    },
+    {
+      "control_id": "HIPAA-164.312-a-1-i",
+      "name": "Unique user identification",
+      "description": "Assign unique name or number identifying tracking user identity on systems touching ePHI.",
+      "severity": "critical",
+      "category": "Technical"
+    },
+    {
+      "control_id": "HIPAA-164.312-c-1",
+      "name": "Integrity mechanism",
+      "description": "Implement electronic mechanisms verifying ePHI not improperly altered destroyed undetectably.",
+      "severity": "high",
+      "category": "Technical"
+    },
+    {
+      "control_id": "HIPAA-164.312-e-1",
+      "name": "Transmission safeguards",
+      "description": "Ensure technical safeguards prevent unauthorized access to ePHI transmitted across networks encryption virtual private networks hardened channels.",
+      "severity": "high",
+      "category": "Technical"
+    }
+  ]
+}

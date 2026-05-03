@@ -1,0 +1,43 @@
+{
+  "id": "soc2-tsc-v1",
+  "name": "SOC 2 Trust Service Criteria",
+  "version": "1.0",
+  "description": "Starter Trust Service Criteria map for SOC 2 style assessments at hackathon fidelity.",
+  "controls": [
+    {
+      "control_id": "SOC2-CC1",
+      "name": "Control environment",
+      "description": "The organization demonstrates a commitment to integrity and ethical values and builds expectations into policies and communications.",
+      "severity": "high",
+      "category": "Governance"
+    },
+    {
+      "control_id": "SOC2-CC2",
+      "name": "Communication and information",
+      "description": "Communication supports the functioning of internal control internally and externally with relevant audiences.",
+      "severity": "medium",
+      "category": "Governance"
+    },
+    {
+      "control_id": "SOC2-CC6",
+      "name": "Logical access",
+      "description": "Logical access safeguards restrict access for employees, contractors, customers, vendors, partners to authorized boundaries.",
+      "severity": "critical",
+      "category": "Security"
+    },
+    {
+      "control_id": "SOC2-CC7",
+      "name": "System operations",
+      "description": "Security incidents are monitored, anomalies analyzed, escalation paths defined with timely restoration efforts.",
+      "severity": "high",
+      "category": "Operations"
+    },
+    {
+      "control_id": "SOC2-CC8",
+      "name": "Change management",
+      "description": "Changes impacting customer commitments require authorization testing approval documentation segregation between environments appropriately.",
+      "severity": "medium",
+      "category": "Operations"
+    }
+  ]
+}

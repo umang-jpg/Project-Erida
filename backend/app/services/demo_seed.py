@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from typing import cast
 
 from app.schemas import Document, Finding, FindingKind, Report, Session
@@ -27,7 +27,7 @@ class DemoSeedService:
         self.parser = parser
 
     def seed_demo(self) -> dict[str, str]:
-        now = datetime.now(UTC)
+        now = datetime.now(timezone.utc)
 
         session = Session(id=DEMO_SESSION_ID, name="ComplianceAutopilot · GDPR demo", created_at=now)
         self.store.save(

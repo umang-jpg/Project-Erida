@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import re
 import uuid
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Literal
 
@@ -13,7 +13,7 @@ _VALID_FOLDER = {"sessions", "documents", "reports", "messages"}
 
 
 def _iso_now() -> str:
-    return datetime.now(UTC).isoformat()
+    return datetime.now(timezone.utc).isoformat()
 
 
 def _encode_json(payload: dict[str, Any]) -> str:

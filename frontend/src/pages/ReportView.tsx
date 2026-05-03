@@ -1,120 +1,102 @@
 import React from 'react';
 import { useSessionStore } from '../store/useSessionStore';
 import ChatPanel from '../components/layout/ChatPanel';
-import { draftRemediation } from '../api';
+import SummaryCards from '../components/reports/SummaryCards';
+import FindingsTable from '../components/reports/FindingsTable';
+import { Download, Share2, Printer } from 'lucide-react';
 
 export default function ReportView() {
-  const { report, setReport, setBusy, setStatusText } = useSessionStore();
-
-  const handleDraftFix = async (findingId: string) => {
-    setBusy(true);
-    try {
-      const response = await draftRemediation(findingId);
-      setReport((existing) => {
-        if (!existing) return existing;
-        return {
-          ...existing,
-          findings: existing.findings.map((finding) =>
-            finding.id === findingId ? { ...finding, remediation: response.remediation } : finding,
-          ),
-        };
-      });
-      setStatusText("Remediation drafted by IBM BOB.");
-    } finally {
-      setBusy(false);
-    }
-  };
+  const { report } = useSessionStore();
 
   if (!report) {
     return (
-      <div className="h-full flex items-center justify-center text-gray-400">
-        <p>No report loaded. Run an analysis from the New Analysis page.</p>
+      <div className="h-full flex flex-col items-center justify-center text-center space-y-4 p-8">
+        <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center">
+          <Download className="w-10 h-10 text-gray-200" />
+        </div>
+        <div>
+          <h3 className="text-xl font-bold text-gray-900">No Report Active</h3>
+          <p className="text-gray-500 max-w-xs">Please run an analysis or select an existing session from history to view results.</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="flex h-full -m-8"> {/* Negative margin to overflow AppShell padding */}
-      <div className="flex-1 overflow-y-auto p-8 space-y-8">
-        <header className="flex justify-between items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900">{report.framework_name} Assessment</h2>
-            <p className="text-gray-500">Continuous AI Audit · {new Date().toLocaleDateString()}</p>
+    <div className="flex h-full -m-8">
+      <div className="flex-1 overflow-y-auto bg-gray-50/50 p-8 space-y-10">
+        <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-0.5 bg-blue-100 text-primary text-[10px] font-bold uppercase rounded">Final Assessment</span>
+              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{new Date().toLocaleDateString()}</span>
+            </div>
+            <h2 className="text-4xl font-black text-gray-900 tracking-tight">{report.framework_name} Dashboard</h2>
           </div>
-          <div className="w-20 h-20 rounded-full border-8 border-primary flex items-center justify-center font-bold text-xl">
-            {report.summary.score}%
+          
+          <div className="flex items-center gap-3">
+            <button className="p-2.5 bg-white border border-gray-200 rounded-xl text-gray-500 hover:text-primary hover:border-primary transition-all">
+              <Download className="w-5 h-5" />
+            </button>
+            <button className="p-2.5 bg-white border border-gray-200 rounded-xl text-gray-500 hover:text-primary hover:border-primary transition-all">
+              <Share2 className="w-5 h-5" />
+            </button>
+            <button className="flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white rounded-xl font-bold text-sm hover:bg-black transition-colors">
+              <Printer className="w-4 h-4" /> Export PDF
+            </button>
           </div>
         </header>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-4 gap-4">
-          <StatCard label="Pass" value={report.summary.pass_count} color="text-green-600 bg-green-50" />
-          <StatCard label="Partial" value={report.summary.partial_count} color="text-amber-600 bg-amber-50" />
-          <StatCard label="Fail" value={report.summary.fail_count} color="text-red-600 bg-red-50" />
-          <StatCard label="Missing" value={report.summary.insufficient_evidence_count} color="text-gray-600 bg-gray-50" />
-        </div>
-
-        {/* Executive Summary */}
-        <section className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-          <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">IBM BOB Executive Summary</h3>
-          <p className="text-lg text-gray-800 leading-relaxed italic">"{report.summary.executive_summary}"</p>
+        {/* Top Summary Row */}
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2">
+            <SummaryCards />
+          </div>
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-center justify-between">
+            <div className="space-y-1">
+              <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Overall Score</h4>
+              <div className="text-3xl font-black text-gray-900">{report.summary.score}%</div>
+              <p className="text-[10px] text-green-600 font-bold uppercase">Condition: Healthy</p>
+            </div>
+            <div className="relative">
+              <svg className="w-20 h-20 -rotate-90">
+                <circle cx="40" cy="40" r="32" stroke="currentColor" strokeWidth="8" fill="transparent" className="text-gray-100" />
+                <circle 
+                  cx="40" cy="40" r="32" stroke="currentColor" strokeWidth="8" fill="transparent" 
+                  className="text-primary"
+                  strokeDasharray={2 * Math.PI * 32}
+                  strokeDashoffset={2 * Math.PI * 32 * (1 - report.summary.score / 100)}
+                  strokeLinecap="round"
+                />
+              </svg>
+              <div className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-primary">BOB</div>
+            </div>
+          </div>
         </section>
 
-        {/* Findings List */}
-        <section className="space-y-4">
-          <h3 className="text-xl font-bold">Detailed Findings</h3>
-          <div className="space-y-4">
-            {report.findings.map((finding) => (
-              <details key={finding.id} className="bg-white border border-gray-200 rounded-xl overflow-hidden group">
-                <summary className="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors list-none">
-                  <div className="flex items-center gap-4">
-                    <span className={`px-2 py-1 rounded text-[10px] font-bold uppercase ${getStatusColor(finding.status)}`}>
-                      {finding.status}
-                    </span>
-                    <div>
-                      <strong className="block text-gray-900">{finding.control_id}</strong>
-                      <span className="text-sm text-gray-500">{finding.control_name}</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-xs text-gray-400">{finding.confidence}% confidence</span>
-                    <svg className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                  </div>
-                </summary>
-                <div className="p-6 border-t border-gray-100 space-y-6 text-sm">
-                  <div>
-                    <h4 className="font-bold text-gray-400 uppercase text-[10px] mb-2">Evidence Found</h4>
-                    <div className="p-4 bg-gray-50 rounded-lg font-mono text-xs border border-gray-100">
-                      {finding.evidence || "No evidence identified in documents."}
-                    </div>
-                  </div>
-                  {finding.gap && (
-                    <div>
-                      <h4 className="font-bold text-gray-400 uppercase text-[10px] mb-2 text-red-500">Compliance Gap</h4>
-                      <p className="text-gray-700">{finding.gap}</p>
-                    </div>
-                  )}
-                  {finding.remediation && (
-                    <div>
-                      <h4 className="font-bold text-gray-400 uppercase text-[10px] mb-2 text-primary">Remediation Steps</h4>
-                      <p className="text-gray-700">{finding.remediation}</p>
-                    </div>
-                  )}
-                  <div className="flex gap-4 pt-4">
-                    <button 
-                      className="px-4 py-2 bg-primary text-white rounded-lg text-xs font-bold hover:shadow-md transition-all"
-                      onClick={() => handleDraftFix(finding.id)}
-                    >
-                      Draft Fix with IBM BOB
-                    </button>
-                    <button className="px-4 py-2 border border-gray-200 text-gray-600 rounded-lg text-xs font-bold hover:bg-gray-50 transition-colors">
-                      View Documents
-                    </button>
-                  </div>
-                </div>
-              </details>
-            ))}
+        {/* Executive Summary */}
+        <section className="bg-white p-8 rounded-3xl border border-blue-100 shadow-sm relative overflow-hidden group">
+          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+            <Shield className="w-32 h-32 -rotate-12" />
           </div>
+          <div className="relative z-10 space-y-4">
+            <div className="flex items-center gap-2">
+              <div className="w-1 h-4 bg-primary rounded-full" />
+              <h3 className="text-sm font-bold text-primary uppercase tracking-widest">IBM BOB Executive Summary</h3>
+            </div>
+            <p className="text-xl text-gray-800 leading-relaxed font-medium italic">
+              "{report.summary.executive_summary}"
+            </p>
+          </div>
+        </section>
+
+        {/* Detailed Findings Table */}
+        <section className="space-y-6">
+          <div className="flex justify-between items-end">
+            <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Compliance Controls</h3>
+            <p className="text-xs text-gray-400 font-medium">Showing {report.findings.length} findings from latest audit</p>
+          </div>
+          <FindingsTable />
         </section>
       </div>
 
@@ -123,20 +105,8 @@ export default function ReportView() {
   );
 }
 
-function StatCard({ label, value, color }: { label: string; value: number; color: string }) {
+function Shield(props: any) {
   return (
-    <div className={`p-4 rounded-2xl flex flex-col items-center justify-center ${color}`}>
-      <span className="text-xs font-bold uppercase tracking-wider opacity-60">{label}</span>
-      <strong className="text-3xl font-black mt-1">{value}</strong>
-    </div>
+    <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
   );
-}
-
-function getStatusColor(status: string) {
-  switch (status.toLowerCase()) {
-    case 'pass': return 'bg-green-100 text-green-700';
-    case 'partial': return 'bg-amber-100 text-amber-700';
-    case 'fail': return 'bg-red-100 text-red-700';
-    default: return 'bg-gray-100 text-gray-700';
-  }
 }

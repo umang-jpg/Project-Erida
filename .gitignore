@@ -2,3 +2,10 @@ node_modules/
 dist/
 .env
 .DS_Store
+backend/data/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.vscode/
+.idea/
+

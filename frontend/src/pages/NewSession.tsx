@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useSessionStore } from '../store/useSessionStore';
-import { createSession, listFrameworks, uploadDocuments, createReport } from '../api';
+import { createSession, listFrameworks, createReport } from '../api';
 import { useNavigate } from 'react-router-dom';
+import DocumentUpload from '../components/documents/DocumentUpload';
+import DocumentList from '../components/documents/DocumentList';
+import FrameworkPicker from '../components/frameworks/FrameworkPicker';
+import ProgressBar from '../components/ui/ProgressBar';
 
 export default function NewSession() {
   const { 
     currentSession, setCurrentSession, 
-    frameworks, setFrameworks, 
-    selectedFrameworkId, setSelectedFrameworkId,
-    files, setFiles,
-    documents, setDocuments,
+    setFrameworks, 
+    selectedFrameworkId,
+    documents,
     setReport,
     setStatusText,
     setBusy,
@@ -17,18 +20,16 @@ export default function NewSession() {
   } = useSessionStore();
   
   const [sessionName, setSessionName] = useState("IBM BOB Demo Session");
+  const [analysisProgress, setAnalysisProgress] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchFrameworks() {
       const data = await listFrameworks();
       setFrameworks(data);
-      if (data.length > 0 && !selectedFrameworkId) {
-        setSelectedFrameworkId(data[0].id);
-      }
     }
     fetchFrameworks();
-  }, [setFrameworks, selectedFrameworkId, setSelectedFrameworkId]);
+  }, [setFrameworks]);
 
   const handleCreateSession = async () => {
     setBusy(true);
@@ -36,18 +37,9 @@ export default function NewSession() {
       const session = await createSession(sessionName);
       setCurrentSession(session);
       setStatusText("Session created. Upload your evidence documents next.");
-    } finally {
-      setBusy(false);
-    }
-  };
-
-  const handleUpload = async () => {
-    if (!currentSession || files.length === 0) return;
-    setBusy(true);
-    try {
-      const uploaded = await uploadDocuments(currentSession.id, files);
-      setDocuments(uploaded);
-      setStatusText("Documents indexed. IBM BOB is ready to map controls to evidence.");
+    } catch (err: any) {
+      console.error(err);
+      setStatusText(`Error: ${err.message || "Failed to create session"}`);
     } finally {
       setBusy(false);
     }
@@ -55,102 +47,134 @@ export default function NewSession() {
 
   const handleRunAnalysis = async () => {
     if (!currentSession || !selectedFrameworkId) return;
+    
     setBusy(true);
-    setStatusText("IBM BOB is analyzing controls against your uploaded evidence...");
+    setAnalysisProgress(0);
+    setStatusText("IBM BOB is analyzing controls against your evidence...");
+
+    // Simulate analysis progress
+    const interval = setInterval(() => {
+      setAnalysisProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return prev + Math.random() * 15;
+      });
+    }, 400);
+
     try {
+      // We run the actual API call
       const createdReport = await createReport(currentSession.id, selectedFrameworkId);
-      setReport(createdReport);
-      navigate(`/report/${currentSession.id}`);
-    } finally {
+      
+      // Ensure progress finishes
+      setTimeout(() => {
+        clearInterval(interval);
+        setAnalysisProgress(100);
+        setReport(createdReport);
+        setStatusText("Analysis complete.");
+        setTimeout(() => {
+          navigate(`/report/${currentSession.id}`);
+          setBusy(false);
+          setAnalysisProgress(0);
+        }, 500);
+      }, 3000);
+    } catch (err) {
+      clearInterval(interval);
       setBusy(false);
+      setStatusText("Analysis failed. Please try again.");
     }
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-4xl mx-auto space-y-12 pb-20">
       <header>
-        <h2 className="text-3xl font-bold">New Compliance Analysis</h2>
-        <p className="text-gray-500">Step-by-step setup for your regulatory assessment.</p>
+        <h2 className="text-4xl font-black text-gray-900 tracking-tight">New Analysis</h2>
+        <p className="text-gray-500 mt-2 text-lg">Configure your compliance session powered by IBM BOB.</p>
       </header>
 
-      {/* Step 1: Session */}
-      <section className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-4">
-        <div className="flex items-center gap-3">
-          <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">1</span>
-          <h3 className="text-xl font-semibold">Name your Session</h3>
+      {/* Analysis Progress Overlay */}
+      {busy && analysisProgress > 0 && (
+        <div className="fixed inset-0 bg-white/80 backdrop-blur-md z-50 flex items-center justify-center p-8">
+          <div className="max-w-md w-full space-y-8 text-center">
+            <div className="relative inline-block">
+              <div className="w-24 h-24 rounded-full border-8 border-blue-50 border-t-primary animate-spin" />
+              <div className="absolute inset-0 flex items-center justify-center font-bold text-primary">BOB</div>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-gray-900">AI Engine Working</h3>
+              <p className="text-gray-500 italic">"Mapping document chunks to regulatory controls..."</p>
+              <ProgressBar progress={analysisProgress} label="Analysis in progress" />
+            </div>
+          </div>
         </div>
-        <div className="flex gap-4">
+      )}
+
+      {/* Step 1: Session */}
+      <section className="space-y-6">
+        <div className="flex items-center gap-4">
+          <span className="flex-shrink-0 w-10 h-10 rounded-2xl bg-gray-900 text-white flex items-center justify-center font-bold shadow-lg shadow-gray-200">1</span>
+          <h3 className="text-2xl font-bold text-gray-900">Name your Session</h3>
+        </div>
+        <div className="flex gap-4 p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
           <input 
-            className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+            className="flex-1 px-5 py-3 bg-gray-50 border-none rounded-xl focus:ring-2 focus:ring-primary outline-none font-medium"
             value={sessionName} 
             onChange={(e) => setSessionName(e.target.value)} 
-            placeholder="e.g., SOC 2 Audit Q2" 
+            placeholder="e.g., SOC 2 Annual Audit" 
+            disabled={!!currentSession || busy}
           />
-          <button 
-            className="bg-primary text-white px-6 py-2 rounded-lg font-medium disabled:opacity-50"
-            onClick={handleCreateSession} 
-            disabled={busy}
-          >
-            Create
-          </button>
+          {!currentSession ? (
+            <button 
+              className="bg-primary text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+              onClick={handleCreateSession} 
+              disabled={busy}
+            >
+              Start Session
+            </button>
+          ) : (
+            <div className="flex items-center px-6 text-green-600 font-bold gap-2">
+              <div className="w-2 h-2 rounded-full bg-green-600 animate-pulse" /> Active
+            </div>
+          )}
         </div>
       </section>
 
       {/* Step 2: Upload */}
-      <section className={`bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-4 transition-opacity ${!currentSession ? 'opacity-50 pointer-events-none' : ''}`}>
-        <div className="flex items-center gap-3">
-          <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">2</span>
-          <h3 className="text-xl font-semibold">Upload Evidence</h3>
+      <section className={`space-y-6 transition-all duration-500 ${!currentSession ? 'opacity-30 blur-[2px] pointer-events-none' : ''}`}>
+        <div className="flex items-center gap-4">
+          <span className="flex-shrink-0 w-10 h-10 rounded-2xl bg-gray-900 text-white flex items-center justify-center font-bold shadow-lg shadow-gray-200">2</span>
+          <h3 className="text-2xl font-bold text-gray-900">Evidence Collection</h3>
         </div>
-        <input 
-          type="file" 
-          multiple 
-          accept=".pdf,.txt,.md" 
-          className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100"
-          onChange={(e) => setFiles(Array.from(e.target.files ?? []))} 
-        />
-        <button 
-          className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-black transition-colors"
-          onClick={handleUpload} 
-          disabled={files.length === 0 || busy}
-        >
-          Upload & Index Documents
-        </button>
-        <div className="space-y-2">
-          {documents.map((doc) => (
-            <div key={doc.id} className="text-sm flex justify-between p-2 bg-gray-50 rounded">
-              <span>{doc.filename}</span>
-              <span className="text-green-600 font-medium">Ready</span>
-            </div>
-          ))}
+        <div className="space-y-6">
+          <DocumentUpload />
+          <DocumentList />
         </div>
       </section>
 
       {/* Step 3: Framework */}
-      <section className={`bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-6 transition-opacity ${documents.length === 0 ? 'opacity-50 pointer-events-none' : ''}`}>
-        <div className="flex items-center gap-3">
-          <span className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">3</span>
-          <h3 className="text-xl font-semibold">Choose Framework</h3>
+      <section className={`space-y-6 transition-all duration-500 ${documents.length === 0 ? 'opacity-30 blur-[2px] pointer-events-none' : ''}`}>
+        <div className="flex items-center gap-4">
+          <span className="flex-shrink-0 w-10 h-10 rounded-2xl bg-gray-900 text-white flex items-center justify-center font-bold shadow-lg shadow-gray-200">3</span>
+          <h3 className="text-2xl font-bold text-gray-900">Target Framework</h3>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {frameworks.map((f) => (
-            <button
-              key={f.id}
-              className={`p-4 border rounded-xl text-left transition-all ${selectedFrameworkId === f.id ? 'border-primary bg-blue-50 ring-1 ring-primary' : 'border-gray-200 hover:border-primary'}`}
-              onClick={() => setSelectedFrameworkId(f.id)}
+        <div className="space-y-8">
+          <FrameworkPicker />
+          <div className="pt-6 border-t border-gray-100">
+            <button 
+              className={`
+                w-full py-5 rounded-2xl font-black text-xl tracking-tight transition-all transform
+                ${selectedFrameworkId 
+                  ? 'bg-primary text-white shadow-xl shadow-blue-200 hover:-translate-y-1 hover:shadow-blue-300' 
+                  : 'bg-gray-100 text-gray-300 cursor-not-allowed'}
+              `}
+              onClick={handleRunAnalysis} 
+              disabled={!selectedFrameworkId || busy}
             >
-              <strong className="block">{f.name}</strong>
-              <p className="text-xs text-gray-500 mt-1">{f.description}</p>
+              RUN IBM BOB COMPLIANCE ENGINE
             </button>
-          ))}
+          </div>
         </div>
-        <button 
-          className="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-          onClick={handleRunAnalysis} 
-          disabled={!selectedFrameworkId || busy}
-        >
-          Run IBM BOB Analysis
-        </button>
       </section>
     </div>
   );

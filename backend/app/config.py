@@ -17,7 +17,16 @@ class Settings(BaseSettings):
     chunk_size_chars: int = Field(default=500, ge=100, le=4096)
     chunk_overlap_chars: int = Field(default=100, ge=0, le=2048)
 
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    # Groq API credentials
+    groq_api_key: str | None = None
+    groq_base_url: str = "https://api.groq.com/openai/v1"
+    groq_model: str = "llama3-70b-8192"
+
+    model_config = SettingsConfigDict(
+        env_file=str(Path(__file__).resolve().parent.parent / ".env"),
+        env_file_encoding="utf-8",
+        extra="ignore"
+    )
 
     @property
     def cors_origin_list(self) -> list[str]:

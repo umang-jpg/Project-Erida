@@ -1,0 +1,139 @@
+PRIVACY POLICY
+Acme Corp - Last Updated: January 2026
+
+================================================================================
+1. INTRODUCTION
+================================================================================
+
+Acme Corp ("we", "us", "our") is committed to protecting the privacy of our
+users. This Privacy Policy describes how we collect, use, and share information
+about you when you use our services, website, and applications.
+
+By using our services, you agree to the collection and use of information in
+accordance with this policy.
+
+================================================================================
+2. INFORMATION WE COLLECT
+================================================================================
+
+We collect the following categories of personal data:
+
+- Full name
+- Email address
+- IP address and device identifiers
+- Usage data and analytics (pages visited, features used, session duration)
+- Payment information (processed by third-party payment processors)
+- Communications you send us (support tickets, emails)
+
+We collect this information when you register for an account, use our platform,
+contact our support team, or interact with our marketing communications.
+
+================================================================================
+3. HOW WE USE YOUR INFORMATION
+================================================================================
+
+We use your personal data for the following purposes:
+
+- To provide and maintain our services
+- To process transactions and send related information
+- To send promotional communications (where you have opted in)
+- To respond to support requests
+- To improve our platform and develop new features
+- To comply with legal obligations
+
+We process your data on the basis of contract performance, legitimate interests,
+and your consent where applicable.
+
+================================================================================
+4. DATA SHARING AND THIRD PARTIES
+================================================================================
+
+We may share your personal data with:
+
+- Service providers who assist in operating our platform (hosting, analytics,
+  payment processing, email delivery)
+- Business partners with your consent
+- Law enforcement or regulatory authorities where required by law
+
+We do not sell your personal data to third parties.
+
+Some of our service providers are located outside the European Economic Area.
+We rely on standard contractual clauses for such transfers.
+
+================================================================================
+5. DATA RETENTION
+================================================================================
+
+We retain your personal data for as long as your account is active or as needed
+to provide our services. We may also retain data to comply with legal
+obligations, resolve disputes, and enforce our agreements.
+
+================================================================================
+6. YOUR RIGHTS
+================================================================================
+
+Depending on your location, you may have the following rights:
+
+- Right to access your personal data
+- Right to correct inaccurate data
+- Right to object to processing
+- Right to restrict processing
+- Right to data portability
+
+To exercise any of these rights, please contact us at privacy@acmecorp.com.
+We will respond to your request within a reasonable timeframe.
+
+================================================================================
+7. SECURITY
+================================================================================
+
+We take reasonable technical and organizational measures to protect your
+personal data against unauthorized access, alteration, disclosure, or
+destruction. These measures include encryption of data in transit using TLS
+and access controls limiting who can access production systems.
+
+We conduct periodic reviews of our security practices.
+
+================================================================================
+8. COOKIES
+================================================================================
+
+We use cookies and similar tracking technologies to enhance your experience.
+You can control cookie preferences through your browser settings.
+
+We use the following types of cookies:
+- Essential cookies (required for the platform to function)
+- Analytics cookies (to understand how users interact with our platform)
+- Marketing cookies (to deliver relevant advertisements)
+
+================================================================================
+9. CHILDREN'S PRIVACY
+================================================================================
+
+Our services are not directed to individuals under the age of 16. We do not
+knowingly collect personal data from children. If you believe we have
+inadvertently collected data from a child, please contact us immediately.
+
+================================================================================
+10. CHANGES TO THIS POLICY
+================================================================================
+
+We may update this Privacy Policy from time to time. We will notify you of
+significant changes by posting the new policy on our website. Your continued
+use of our services after changes constitutes acceptance of the updated policy.
+
+================================================================================
+11. CONTACT US
+================================================================================
+
+If you have questions about this Privacy Policy or our data practices, please
+contact us at:
+
+Acme Corp
+123 Business Street
+San Francisco, CA 94105
+Email: privacy@acmecorp.com
+
+================================================================================
+END OF PRIVACY POLICY
+================================================================================

@@ -1,0 +1,7 @@
+{
+  "id": "f56ccccf-af5a-49af-a6c9-7ba122b7ece3",
+  "session_id": "00000000-aaaa-4aaa-8aaa-aaaaaaaa0001",
+  "role": "assistant",
+  "content": "Based on the compliance report showing 64.0% compliance with 5 failing controls, the priority gaps are: Legitimate interest balancing test, objection intake channel, and documented responses are absent for non-marketing processing., Missing privacy review gates, data minimization defaults, and engineering checklists tied to new features or datasets., No joint-controller agreement, responsibility matrix, or single point of contact for data subjects.. I recommend addressing these in order of severity. Would you like me to draft specific remediation language for any of these gaps?",
+  "created_at": "2026-05-03T11:13:17.582512+00:00"
+}

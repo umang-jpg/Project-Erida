@@ -33,8 +33,15 @@ from app.services.frameworks import FrameworkService, summarize_report
 from app.services.storage import JsonDirectoryStore
 
 
+
+
+
+
 class ChatRequest(BaseModel):
     message: str
+
+def get_framework(settings: Settings = Depends(get_settings)):
+    return get_framework_service(settings)
 
 
 def get_store(settings: Settings = Depends(get_settings)) -> JsonDirectoryStore:
@@ -56,8 +63,9 @@ def get_demo_seed(
     return DemoSeedService(store, parser)
 
 
-def get_bob() -> BobClient:
-    return BobClient()
+def get_bob(settings: Settings = Depends(get_settings)) -> BobClient:
+    print("=== get_bob() CALLED ===")
+    return BobClient(settings)
 
 
 app = FastAPI(title="ComplianceAutopilot API", version="0.2.0")
@@ -236,7 +244,7 @@ async def create_report(
         payload.session_id,
         framework.id,
         store_instance,
-        get_bob(),
+        BobClient(get_settings()),
         get_framework_service(get_settings())
     )
     
@@ -299,11 +307,19 @@ async def seed_demo(demo_seed: DemoSeedService = Depends(get_demo_seed)) -> Demo
 
 
 @app.post("/api/sessions/{session_id}/chat")
-async def chat(session_id: str, body: ChatRequest, store: JsonDirectoryStore = Depends(get_store)) -> dict:
-    bob = get_bob()
-    fw = get_framework_service(get_settings())
+async def chat(
+    session_id: str,
+    body: ChatRequest,
+    store: JsonDirectoryStore = Depends(get_store),
+    bob: BobClient = Depends(get_bob),
+    fw = Depends(get_framework)
+) -> dict:
     response = await chat_send_message(session_id, body.message, store, bob, fw)
-    return {"role": "assistant", "content": response, "provider": "IBM watsonx.ai"}
+    return {
+        "role": "assistant",
+        "content": response,
+        "provider": "Groq"
+    }
 
 
 @app.get("/api/sessions/{session_id}/messages")
@@ -319,5 +335,5 @@ async def draft_remediation(finding_id: str, store: JsonDirectoryStore = Depends
         for f in report.get("findings", []):
             if f.get("id") == finding_id:
                 text = await bob.draft_remediation(f.get("control_id", ""), f.get("gap", ""))
-                return {"remediation": text, "provider": "IBM watsonx.ai"}
+                return {"remediation": text, "provider": "Groq"}
     raise HTTPException(status_code=404, detail="Finding not found.")

@@ -1,0 +1,95 @@
+{
+  "id": "a7de5f96-dbd8-4c4a-81fc-2334b25841de",
+  "session_id": "b0d8b61b-ab2c-4789-a18b-988c7d80f884",
+  "framework_id": "gdpr-essentials-v1",
+  "status": "complete",
+  "overall_score": 43.75,
+  "pass_count": 3,
+  "fail_count": 2,
+  "partial_count": 1,
+  "insufficient_count": 2,
+  "executive_summary": "Analysis of 8 controls under GDPR Essentials shows a compliance score of 44%. Critical gaps were identified in GDPR-Art-5, GDPR-Art-13. Immediate action is required to document missing policies before the next audit.",
+  "findings": [
+    {
+      "id": "862d0803-2cd3-43a8-b56a-c122f17bf48b",
+      "report_id": "a7de5f96-dbd8-4c4a-81fc-2334b25841de",
+      "control_id": "GDPR-Art-5",
+      "status": "partial",
+      "confidence": 65,
+      "evidence": "The document references related procedures though gaps remain.",
+      "gap": "Partial coverage only for Principles of Processing.",
+      "remediation": "Expand existing documentation to fully address Principles of Processing."
+    },
+    {
+      "id": "2c84786a-e35e-4712-918d-272a5c4908bc",
+      "report_id": "a7de5f96-dbd8-4c4a-81fc-2334b25841de",
+      "control_id": "GDPR-Art-6",
+      "status": "pass",
+      "confidence": 82,
+      "evidence": "Section 2.1 states procedures are documented and reviewed annually.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f98f36d4-b576-4526-992a-0d84b9b113d4",
+      "report_id": "a7de5f96-dbd8-4c4a-81fc-2334b25841de",
+      "control_id": "GDPR-Art-7",
+      "status": "insufficient_evidence",
+      "confidence": 40,
+      "evidence": "",
+      "gap": "Insufficient documentation to assess this control.",
+      "remediation": "Upload additional evidence for Conditions for Consent."
+    },
+    {
+      "id": "00d77d93-988f-45bd-b290-09b176de196c",
+      "report_id": "a7de5f96-dbd8-4c4a-81fc-2334b25841de",
+      "control_id": "GDPR-Art-12",
+      "status": "pass",
+      "confidence": 82,
+      "evidence": "Section 2.1 states procedures are documented and reviewed annually.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "17d665c7-6162-43df-ab6d-145c7a2615cb",
+      "report_id": "a7de5f96-dbd8-4c4a-81fc-2334b25841de",
+      "control_id": "GDPR-Art-13",
+      "status": "fail",
+      "confidence": 78,
+      "evidence": "",
+      "gap": "No documentation found for Information Provided at Collection.",
+      "remediation": "Create a policy section explicitly addressing Information Provided at Collection: At collection, controllers disclose identity/contact, purposes/legal basis, recipients, retention, r"
+    },
+    {
+      "id": "d8d39f50-e9d7-4916-9e37-c3c07b0d1217",
+      "report_id": "a7de5f96-dbd8-4c4a-81fc-2334b25841de",
+      "control_id": "GDPR-Art-14",
+      "status": "insufficient_evidence",
+      "confidence": 40,
+      "evidence": "",
+      "gap": "Insufficient documentation to assess this control.",
+      "remediation": "Upload additional evidence for Information Provided When Data Not Obtained Directly."
+    },
+    {
+      "id": "763195a7-5ccc-40ce-b1b1-6ad333156bf3",
+      "report_id": "a7de5f96-dbd8-4c4a-81fc-2334b25841de",
+      "control_id": "GDPR-Art-15",
+      "status": "pass",
+      "confidence": 82,
+      "evidence": "Section 2.1 states procedures are documented and reviewed annually.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "040e39fd-95d7-4848-b6d5-67f11a6dcd63",
+      "report_id": "a7de5f96-dbd8-4c4a-81fc-2334b25841de",
+      "control_id": "GDPR-Art-16",
+      "status": "fail",
+      "confidence": 78,
+      "evidence": "",
+      "gap": "No documentation found for Right to Rectification.",
+      "remediation": "Create a policy section explicitly addressing Right to Rectification: Inaccurate data must be corrected without undue delay; incomplete personal data completed when purpo"
+    }
+  ],
+  "created_at": "2026-05-03T13:27:11.108870Z"
+}

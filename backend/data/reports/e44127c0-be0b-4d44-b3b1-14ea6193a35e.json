@@ -1,0 +1,14 @@
+{
+  "id": "e44127c0-be0b-4d44-b3b1-14ea6193a35e",
+  "session_id": "be78cbfb-4141-4807-8ef7-9cb41c790d56",
+  "framework_id": "gdpr-essentials-v1",
+  "status": "running",
+  "overall_score": null,
+  "pass_count": 0,
+  "fail_count": 0,
+  "partial_count": 0,
+  "insufficient_count": 0,
+  "executive_summary": "",
+  "findings": [],
+  "created_at": "2026-05-03T13:20:06.319999Z"
+}

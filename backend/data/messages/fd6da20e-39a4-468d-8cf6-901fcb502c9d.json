@@ -1,0 +1,7 @@
+{
+  "id": "fd6da20e-39a4-468d-8cf6-901fcb502c9d",
+  "session_id": "b0d8b61b-ab2c-4789-a18b-988c7d80f884",
+  "role": "assistant",
+  "content": "Based on the compliance report showing 43.75% compliance with 2 failing controls, the priority gaps are: Partial coverage only for Principles of Processing., No documentation found for Information Provided at Collection., No documentation found for Right to Rectification.. I recommend addressing these in order of severity. Would you like me to draft specific remediation language for any of these gaps?",
+  "created_at": "2026-05-03T13:29:01.681961+00:00"
+}

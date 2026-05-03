@@ -1,0 +1,101 @@
+{
+  "id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+  "session_id": "b0d8b61b-ab2c-4789-a18b-988c7d80f884",
+  "filename": "privacy-policy.txt",
+  "file_type": "txt",
+  "status": "ready",
+  "parsed_text": "PRIVACY POLICY\nAcme Corp - Last Updated: January 2026\n\n================================================================================\n1. INTRODUCTION\n================================================================================\n\nAcme Corp (\"we\", \"us\", \"our\") is committed to protecting the privacy of our\nusers. This Privacy Policy describes how we collect, use, and share information\nabout you when you use our services, website, and applications.\n\nBy using our services, you agree to the collection and use of information in\naccordance with this policy.\n\n================================================================================\n2. INFORMATION WE COLLECT\n================================================================================\n\nWe collect the following categories of personal data:\n\n- Full name\n- Email address\n- IP address and device identifiers\n- Usage data and analytics (pages visited, features used, session duration)\n- Payment information (processed by third-party payment processors)\n- Communications you send us (support tickets, emails)\n\nWe collect this information when you register for an account, use our platform,\ncontact our support team, or interact with our marketing communications.\n\n================================================================================\n3. HOW WE USE YOUR INFORMATION\n================================================================================\n\nWe use your personal data for the following purposes:\n\n- To provide and maintain our services\n- To process transactions and send related information\n- To send promotional communications (where you have opted in)\n- To respond to support requests\n- To improve our platform and develop new features\n- To comply with legal obligations\n\nWe process your data on the basis of contract performance, legitimate interests,\nand your consent where applicable.\n\n================================================================================\n4. DATA SHARING AND THIRD PARTIES\n================================================================================\n\nWe may share your personal data with:\n\n- Service providers who assist in operating our platform (hosting, analytics,\n  payment processing, email delivery)\n- Business partners with your consent\n- Law enforcement or regulatory authorities where required by law\n\nWe do not sell your personal data to third parties.\n\nSome of our service providers are located outside the European Economic Area.\nWe rely on standard contractual clauses for such transfers.\n\n================================================================================\n5. DATA RETENTION\n================================================================================\n\nWe retain your personal data for as long as your account is active or as needed\nto provide our services. We may also retain data to comply with legal\nobligations, resolve disputes, and enforce our agreements.\n\n================================================================================\n6. YOUR RIGHTS\n================================================================================\n\nDepending on your location, you may have the following rights:\n\n- Right to access your personal data\n- Right to correct inaccurate data\n- Right to object to processing\n- Right to restrict processing\n- Right to data portability\n\nTo exercise any of these rights, please contact us at privacy@acmecorp.com.\nWe will respond to your request within a reasonable timeframe.\n\n================================================================================\n7. SECURITY\n================================================================================\n\nWe take reasonable technical and organizational measures to protect your\npersonal data against unauthorized access, alteration, disclosure, or\ndestruction. These measures include encryption of data in transit using TLS\nand access controls limiting who can access production systems.\n\nWe conduct periodic reviews of our security practices.\n\n================================================================================\n8. COOKIES\n================================================================================\n\nWe use cookies and similar tracking technologies to enhance your experience.\nYou can control cookie preferences through your browser settings.\n\nWe use the following types of cookies:\n- Essential cookies (required for the platform to function)\n- Analytics cookies (to understand how users interact with our platform)\n- Marketing cookies (to deliver relevant advertisements)\n\n================================================================================\n9. CHILDREN'S PRIVACY\n================================================================================\n\nOur services are not directed to individuals under the age of 16. We do not\nknowingly collect personal data from children. If you believe we have\ninadvertently collected data from a child, please contact us immediately.\n\n================================================================================\n10. CHANGES TO THIS POLICY\n================================================================================\n\nWe may update this Privacy Policy from time to time. We will notify you of\nsignificant changes by posting the new policy on our website. Your continued\nuse of our services after changes constitutes acceptance of the updated policy.\n\n================================================================================\n11. CONTACT US\n================================================================================\n\nIf you have questions about this Privacy Policy or our data practices, please\ncontact us at:\n\nAcme Corp\n123 Business Street\nSan Francisco, CA 94105\nEmail: privacy@acmecorp.com\n\n================================================================================\nEND OF PRIVACY POLICY\n================================================================================\n",
+  "chunks": [
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 0,
+      "content": "PRIVACY POLICY\nAcme Corp - Last Updated: January 2026\n\n================================================================================\n1. INTRODUCTION\n================================================================================\n\nAcme Corp (\"we\", \"us\", \"our\") is committed to protecting the privacy of our\nusers. This Privacy Policy describes how we collect, use, and share information\nabout you when you use our services, website, and applications.\n\nBy using our services, you agree to the colle",
+      "source_ref": "privacy-policy.txt lines 1-12"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 1,
+      "content": "when you use our services, website, and applications.\n\nBy using our services, you agree to the collection and use of information in\naccordance with this policy.\n\n================================================================================\n2. INFORMATION WE COLLECT\n================================================================================\n\nWe collect the following categories of personal data:\n\n- Full name\n- Email address\n- IP address and device identifiers\n- Usage data and analytics (pa",
+      "source_ref": "privacy-policy.txt lines 10-24"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 2,
+      "content": "ata:\n\n- Full name\n- Email address\n- IP address and device identifiers\n- Usage data and analytics (pages visited, features used, session duration)\n- Payment information (processed by third-party payment processors)\n- Communications you send us (support tickets, emails)\n\nWe collect this information when you register for an account, use our platform,\ncontact our support team, or interact with our marketing communications.\n\n============================================================================",
+      "source_ref": "privacy-policy.txt lines 19-31"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 3,
+      "content": "keting communications.\n\n================================================================================\n3. HOW WE USE YOUR INFORMATION\n================================================================================\n\nWe use your personal data for the following purposes:\n\n- To provide and maintain our services\n- To process transactions and send related information\n- To send promotional communications (where you have opted in)\n- To respond to support requests\n- To improve our platform and develop",
+      "source_ref": "privacy-policy.txt lines 29-41"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 4,
+      "content": "ons (where you have opted in)\n- To respond to support requests\n- To improve our platform and develop new features\n- To comply with legal obligations\n\nWe process your data on the basis of contract performance, legitimate interests,\nand your consent where applicable.\n\n================================================================================\n4. DATA SHARING AND THIRD PARTIES\n================================================================================\n\nWe may share your personal data with",
+      "source_ref": "privacy-policy.txt lines 39-51"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 5,
+      "content": "==============================================================\n\nWe may share your personal data with:\n\n- Service providers who assist in operating our platform (hosting, analytics,\n  payment processing, email delivery)\n- Business partners with your consent\n- Law enforcement or regulatory authorities where required by law\n\nWe do not sell your personal data to third parties.\n\nSome of our service providers are located outside the European Economic Area.\nWe rely on standard contractual clauses for s",
+      "source_ref": "privacy-policy.txt lines 49-61"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 6,
+      "content": "viders are located outside the European Economic Area.\nWe rely on standard contractual clauses for such transfers.\n\n================================================================================\n5. DATA RETENTION\n================================================================================\n\nWe retain your personal data for as long as your account is active or as needed\nto provide our services. We may also retain data to comply with legal\nobligations, resolve disputes, and enforce our agreem",
+      "source_ref": "privacy-policy.txt lines 60-69"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 7,
+      "content": ". We may also retain data to comply with legal\nobligations, resolve disputes, and enforce our agreements.\n\n================================================================================\n6. YOUR RIGHTS\n================================================================================\n\nDepending on your location, you may have the following rights:\n\n- Right to access your personal data\n- Right to correct inaccurate data\n- Right to object to processing\n- Right to restrict processing\n- Right to data ",
+      "source_ref": "privacy-policy.txt lines 68-81"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 8,
+      "content": "rect inaccurate data\n- Right to object to processing\n- Right to restrict processing\n- Right to data portability\n\nTo exercise any of these rights, please contact us at privacy@acmecorp.com.\nWe will respond to your request within a reasonable timeframe.\n\n================================================================================\n7. SECURITY\n================================================================================\n\nWe take reasonable technical and organizational measures to protect your",
+      "source_ref": "privacy-policy.txt lines 78-90"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 9,
+      "content": "==========================\n\nWe take reasonable technical and organizational measures to protect your\npersonal data against unauthorized access, alteration, disclosure, or\ndestruction. These measures include encryption of data in transit using TLS\nand access controls limiting who can access production systems.\n\nWe conduct periodic reviews of our security practices.\n\n================================================================================\n8. COOKIES\n========================================",
+      "source_ref": "privacy-policy.txt lines 88-99"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 10,
+      "content": "================================================\n8. COOKIES\n================================================================================\n\nWe use cookies and similar tracking technologies to enhance your experience.\nYou can control cookie preferences through your browser settings.\n\nWe use the following types of cookies:\n- Essential cookies (required for the platform to function)\n- Analytics cookies (to understand how users interact with our platform)\n- Marketing cookies (to deliver relevant a",
+      "source_ref": "privacy-policy.txt lines 97-107"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 11,
+      "content": "kies (to understand how users interact with our platform)\n- Marketing cookies (to deliver relevant advertisements)\n\n================================================================================\n9. CHILDREN'S PRIVACY\n================================================================================\n\nOur services are not directed to individuals under the age of 16. We do not\nknowingly collect personal data from children. If you believe we have\ninadvertently collected data from a child, please con",
+      "source_ref": "privacy-policy.txt lines 106-115"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 12,
+      "content": "nal data from children. If you believe we have\ninadvertently collected data from a child, please contact us immediately.\n\n================================================================================\n10. CHANGES TO THIS POLICY\n================================================================================\n\nWe may update this Privacy Policy from time to time. We will notify you of\nsignificant changes by posting the new policy on our website. Your continued\nuse of our services after changes co",
+      "source_ref": "privacy-policy.txt lines 114-123"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 13,
+      "content": "hanges by posting the new policy on our website. Your continued\nuse of our services after changes constitutes acceptance of the updated policy.\n\n================================================================================\n11. CONTACT US\n================================================================================\n\nIf you have questions about this Privacy Policy or our data practices, please\ncontact us at:\n\nAcme Corp\n123 Business Street\nSan Francisco, CA 94105\nEmail: privacy@acmecorp.com\n\n",
+      "source_ref": "privacy-policy.txt lines 122-137"
+    },
+    {
+      "document_id": "abf8f148-4c3d-4c54-adc6-ec1956f07255",
+      "chunk_index": 14,
+      "content": "\ncontact us at:\n\nAcme Corp\n123 Business Street\nSan Francisco, CA 94105\nEmail: privacy@acmecorp.com\n\n================================================================================\nEND OF PRIVACY POLICY\n================================================================================\n",
+      "source_ref": "privacy-policy.txt lines 130-140"
+    }
+  ],
+  "error_message": null
+}

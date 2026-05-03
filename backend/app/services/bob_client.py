@@ -1,80 +1,64 @@
 from __future__ import annotations
 
 import json
-import os
-from datetime import datetime, timedelta
 from typing import Any
 
 import httpx
 
+from app.config import Settings
 from app.schemas import Chunk, Control
+
+print("=== bob_client.py LOADED ===")
 
 
 class BobClient:
-    def __init__(self) -> None:
-        self.api_key = os.getenv("IBM_BOB_API_KEY")
-        self.base_url = os.getenv("IBM_BOB_BASE_URL", "https://us-south.ml.cloud.ibm.com")
-        self.model = os.getenv("IBM_BOB_MODEL", "ibm/granite-3-8b-instruct")
-        self.project_id = os.getenv("WATSONX_PROJECT_ID")
+    def __init__(self, settings: Settings) -> None:
+        self.api_key = settings.groq_api_key
+        self.base_url = settings.groq_base_url
+        self.model = settings.groq_model
         
-        self._iam_token: str | None = None
-        self._token_expiry: datetime | None = None
+        # Debug prints
+        print(f"API KEY: {self.api_key[:20] if self.api_key else None}...")
         
         # Print startup mode
-        if self.api_key and self.project_id:
-            print("[BOB LIVE] watsonx.ai connected")
+        if self.api_key:
+            print("[BOB LIVE] Groq connected")
         else:
-            print("[BOB FALLBACK] No credentials")
+            print("[BOB FALLBACK] No Groq key")
     
     @property
     def is_live(self) -> bool:
-        return bool(self.api_key and self.project_id)
+        return bool(self.api_key)
     
-    async def _get_iam_token(self) -> str:
-        """Fetch and cache IBM IAM token. Refresh if older than 50 minutes."""
-        # Check if token is still valid
-        if self._iam_token and self._token_expiry:
-            if datetime.now() < self._token_expiry:
-                return self._iam_token
-        
-        # Fetch new token
-        async with httpx.AsyncClient() as client:
-            response = await client.post(
-                "https://iam.cloud.ibm.com/identity/token",
-                headers={"Content-Type": "application/x-www-form-urlencoded"},
-                content=f"grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey={self.api_key}",
-                timeout=30.0
-            )
-            response.raise_for_status()
-            data = response.json()
-            self._iam_token = data["access_token"]
-            self._token_expiry = datetime.now() + timedelta(minutes=50)
-            return self._iam_token if self._iam_token else ""
-    
-    async def _call_watsonx(self, prompt: str) -> str | None:
-        """Make API call to IBM watsonx.ai. Returns None on error (triggers fallback)."""
+    async def _call_groq(self, prompt: str) -> str | None:
+        """Make API call to Groq. Returns None on error (triggers fallback)."""
         if not self.is_live:
             return None
         
         try:
-            token = await self._get_iam_token()
             async with httpx.AsyncClient() as client:
                 response = await client.post(
-                    f"{self.base_url}/ml/v1/text/chat?version=2023-05-29",
+                    f"{self.base_url}/chat/completions",
                     headers={
-                        "Authorization": f"Bearer {token}",
+                        "Authorization": f"Bearer {self.api_key}",
                         "Content-Type": "application/json"
                     },
                     json={
-                        "model_id": self.model,
-                        "project_id": self.project_id,
+                        "model": self.model,
                         "messages": [{"role": "user", "content": prompt}],
-                        "max_tokens": 1000
+                        "max_tokens": 1000,
+                        "temperature": 0.7
                     },
                     timeout=60.0
                 )
                 response.raise_for_status()
                 data = response.json()
+                
+                # Debug logging
+                print("=== RAW GROQ RESPONSE ===")
+                print(data)
+                
+                # Parse OpenAI-compatible response format
                 return data["choices"][0]["message"]["content"]
         except Exception as e:
             print(f"[BOB ERROR] {e}")
@@ -99,12 +83,12 @@ Return ONLY valid JSON, no other text:
 {{"control_id": "{control.control_id}", "status": "pass" or "partial" or "fail" or "insufficient_evidence", "confidence": integer 0-100, "evidence": "quoted text from documents or empty string", "gap": "what is missing or empty string", "remediation": "one paragraph action to fix or empty string"}}"""
         
         # Try live call
-        response = await self._call_watsonx(prompt)
+        response = await self._call_groq(prompt)
         
         if response:
             try:
                 result = json.loads(response)
-                result["provider"] = "IBM watsonx.ai"
+                result["provider"] = "Groq"
                 result["model"] = self.model
                 result["mode"] = "live"
                 return result
@@ -146,7 +130,7 @@ Return ONLY valid JSON, no other text:
         ]
         result = fallbacks[hash_val].copy()
         result["control_id"] = control.control_id
-        result["provider"] = "IBM watsonx.ai"
+        result["provider"] = "Groq"
         result["model"] = self.model
         result["mode"] = "fallback"
         return result
@@ -162,7 +146,7 @@ Top gaps: {', '.join([f['control_id'] for f in top_failures[:3]])}
 
 Plain English only, no markdown, no bullet points."""
         
-        response = await self._call_watsonx(prompt)
+        response = await self._call_groq(prompt)
         
         if response:
             return response
@@ -172,20 +156,36 @@ Plain English only, no markdown, no bullet points."""
     
     async def answer_chat(self, user_message: str, report_summary: dict[str, Any], relevant_chunks: list[Chunk]) -> str:
         """Answer a chat question based on report context and relevant document chunks."""
-        chunks_text = "\n".join([f"[{c.source_ref}] {c.content[:300]}" for c in relevant_chunks])
-        
         prompt = f"""You are a senior compliance officer helping a team fix compliance gaps.
 
-REPORT: Score {report_summary.get('overall_score', 'N/A')}%, {report_summary.get('fail_count', 0)} failing controls. Top gaps: {', '.join(report_summary.get('top_gaps', [])[:3])}.
+Be direct, specific, and practical. Do NOT repeat the same summary every time.
 
-RELEVANT DOCUMENT SECTIONS:
-{chunks_text}
+REPORT CONTEXT:
+* Overall Score: {report_summary.get('overall_score','N/A')}%
+* Failing Controls: {report_summary.get('fail_count',0)}
+* Top Gaps: {', '.join(report_summary.get('top_gaps',[])[:3])}
 
-QUESTION: {user_message}
+DOCUMENT EVIDENCE:
+{chr(10).join(f'[{c.source_ref}] {c.content[:300]}' for c in relevant_chunks)}
 
-Answer specifically. If asked what to fix first, sort by severity. If asked to draft policy language, write production-ready text."""
+USER QUESTION:
+{user_message}
+
+Instructions:
+* Answer the question directly
+* If asking about gaps → explain clearly
+* If asking what to fix → give step-by-step actions
+* If asking for explanation → simplify like explaining to a non-expert
+* Avoid repeating the same intro sentence
+* Be concise but useful
+
+Answer:
+"""
         
-        response = await self._call_watsonx(prompt)
+        print("=== NEW PROMPT ACTIVE ===")
+        print(prompt[:300])
+        
+        response = await self._call_groq(prompt)
         
         if response:
             return response
@@ -202,7 +202,7 @@ Current gap: {gap_text}
 
 Be specific and practical."""
         
-        response = await self._call_watsonx(prompt)
+        response = await self._call_groq(prompt)
         
         if response:
             return response

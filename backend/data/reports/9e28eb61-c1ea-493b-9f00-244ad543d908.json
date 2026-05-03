@@ -1,0 +1,95 @@
+{
+  "id": "9e28eb61-c1ea-493b-9f00-244ad543d908",
+  "session_id": "be78cbfb-4141-4807-8ef7-9cb41c790d56",
+  "framework_id": "gdpr-essentials-v1",
+  "status": "complete",
+  "overall_score": 25.0,
+  "pass_count": 1,
+  "fail_count": 5,
+  "partial_count": 2,
+  "insufficient_count": 0,
+  "executive_summary": "Analysis of 8 controls under GDPR Essentials shows a compliance score of 25%. Critical gaps were identified in GDPR-Art-5, GDPR-Art-6. Immediate action is required to document missing policies before the next audit.",
+  "findings": [
+    {
+      "id": "86a57c53-0747-422b-b500-5d6ac22c3c61",
+      "report_id": "9e28eb61-c1ea-493b-9f00-244ad543d908",
+      "control_id": "GDPR-Art-5",
+      "status": "fail",
+      "confidence": 78,
+      "evidence": "",
+      "gap": "No documentation found for Principles of Processing.",
+      "remediation": "Create a policy section explicitly addressing Principles of Processing: Personal data must be processed lawfully, fairly, transparently, limited to purpose, accurate, minim"
+    },
+    {
+      "id": "ef6606d0-9283-4aa4-8d18-d59d3f259433",
+      "report_id": "9e28eb61-c1ea-493b-9f00-244ad543d908",
+      "control_id": "GDPR-Art-6",
+      "status": "partial",
+      "confidence": 65,
+      "evidence": "The document references related procedures though gaps remain.",
+      "gap": "Partial coverage only for Lawfulness of Processing.",
+      "remediation": "Expand existing documentation to fully address Lawfulness of Processing."
+    },
+    {
+      "id": "51cec5d2-45bb-4cf6-a4a3-1997a9bccc36",
+      "report_id": "9e28eb61-c1ea-493b-9f00-244ad543d908",
+      "control_id": "GDPR-Art-7",
+      "status": "partial",
+      "confidence": 65,
+      "evidence": "The document references related procedures though gaps remain.",
+      "gap": "Partial coverage only for Conditions for Consent.",
+      "remediation": "Expand existing documentation to fully address Conditions for Consent."
+    },
+    {
+      "id": "039827fd-f0d0-459c-85f0-5a2d5cdec5bc",
+      "report_id": "9e28eb61-c1ea-493b-9f00-244ad543d908",
+      "control_id": "GDPR-Art-12",
+      "status": "fail",
+      "confidence": 78,
+      "evidence": "",
+      "gap": "No documentation found for Transparent Communication.",
+      "remediation": "Create a policy section explicitly addressing Transparent Communication: Information provided to data subjects must be concise, understandable, transparent, accessible, deli"
+    },
+    {
+      "id": "4d4db41c-d279-4c85-8389-7cace6e44a49",
+      "report_id": "9e28eb61-c1ea-493b-9f00-244ad543d908",
+      "control_id": "GDPR-Art-13",
+      "status": "fail",
+      "confidence": 78,
+      "evidence": "",
+      "gap": "No documentation found for Information Provided at Collection.",
+      "remediation": "Create a policy section explicitly addressing Information Provided at Collection: At collection, controllers disclose identity/contact, purposes/legal basis, recipients, retention, r"
+    },
+    {
+      "id": "a8060e34-e856-458e-a8f3-efadfb49ed3d",
+      "report_id": "9e28eb61-c1ea-493b-9f00-244ad543d908",
+      "control_id": "GDPR-Art-14",
+      "status": "pass",
+      "confidence": 82,
+      "evidence": "Section 2.1 states procedures are documented and reviewed annually.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "be0f3f5b-0e78-40b4-be17-cb89be6b3cfe",
+      "report_id": "9e28eb61-c1ea-493b-9f00-244ad543d908",
+      "control_id": "GDPR-Art-15",
+      "status": "fail",
+      "confidence": 78,
+      "evidence": "",
+      "gap": "No documentation found for Right of Access.",
+      "remediation": "Create a policy section explicitly addressing Right of Access: Controllers must honour access requests confirming processing, granting copies, describing purposes,"
+    },
+    {
+      "id": "1e8243fb-a96e-4277-b4a7-a3529b16d87f",
+      "report_id": "9e28eb61-c1ea-493b-9f00-244ad543d908",
+      "control_id": "GDPR-Art-16",
+      "status": "fail",
+      "confidence": 78,
+      "evidence": "",
+      "gap": "No documentation found for Right to Rectification.",
+      "remediation": "Create a policy section explicitly addressing Right to Rectification: Inaccurate data must be corrected without undue delay; incomplete personal data completed when purpo"
+    }
+  ],
+  "created_at": "2026-05-03T13:22:11.150649Z"
+}

@@ -75,6 +75,7 @@ async def send_message(
     relevant_chunks = [c for _, c in scored[:5]]
     
     # Get response from bob
+    print("=== chat.py calling answer_chat ===")
     response = await bob.answer_chat(user_message, report_summary, relevant_chunks)
     
     # Save assistant message

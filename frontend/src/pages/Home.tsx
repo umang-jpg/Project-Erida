@@ -22,15 +22,15 @@ export default function Home() {
   return (
     <div className="space-y-6">
       <header>
-        <h2 className="text-3xl font-bold">Analysis History</h2>
-        <p className="text-gray-500">View and manage your previous compliance assessments.</p>
+        <h2 className="font-heading text-xl tracking-[4px] glow-text uppercase">Mission Log</h2>
+        <p className="text-ink-muted text-sm font-body">Previous compliance scans and assessments.</p>
       </header>
 
       <div className="grid gap-4">
         {sessions.map((session) => (
           <button
             key={session.id}
-            className={`p-4 bg-white border rounded-xl text-left hover:border-primary transition-all flex justify-between items-center ${currentSession?.id === session.id ? 'border-primary ring-1 ring-primary' : 'border-gray-200'}`}
+            className={`panel scan-line text-left hover:border-cyan transition-all flex justify-between items-center group ${currentSession?.id === session.id ? 'border-cyan border-l-4' : 'border-cyan-dim'}`}
             onClick={async () => {
               setCurrentSession(session);
               setDocuments(await listDocuments(session.id));
@@ -40,15 +40,15 @@ export default function Home() {
             }}
           >
             <div>
-              <strong className="block text-lg">{session.name}</strong>
-              <span className="text-sm text-gray-500">{new Date(session.created_at).toLocaleString()}</span>
+              <strong className="block text-lg font-heading tracking-wider text-ink group-hover:glow-text uppercase">{session.name}</strong>
+              <span className="text-xs font-mono text-ink-muted">{new Date(session.created_at).toLocaleString()}</span>
             </div>
-            <div className="text-primary font-medium">View Report →</div>
+            <div className="hud-btn text-[10px] tracking-widest group-hover:border-cyan">View Report →</div>
           </button>
         ))}
         {sessions.length === 0 && !busy && (
-          <div className="text-center py-12 bg-white border border-dashed rounded-xl text-gray-400">
-            No sessions found. Start a new analysis to see it here.
+          <div className="panel border-dashed text-center py-12 text-ink-muted font-mono">
+            NO PRIOR SESSIONS DETECTED. INITIATE NEW SCAN TO BEGIN.
           </div>
         )}
       </div>

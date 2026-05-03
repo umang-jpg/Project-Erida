@@ -11,21 +11,19 @@ export default function DocumentList() {
 
   return (
     <div className="space-y-3">
-      <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest">Uploaded Documents</h4>
+      <h4 className="panel-label">Source Signal Nodes</h4>
       <div className="grid gap-2">
         {allFiles.map((doc, i) => (
-          <div key={`${doc.id}-${i}`} className="flex items-center justify-between p-3 bg-white border border-gray-100 rounded-xl shadow-sm">
+          <div key={`${doc.id}-${i}`} className="panel flex items-center justify-between py-3">
             <div className="flex items-center gap-3">
-              <FileText className="w-5 h-5 text-primary" />
-              <span className="text-sm font-medium text-gray-700">{doc.filename}</span>
+              <FileText className="w-4 h-4 text-cyan" />
+              <span className="text-xs font-mono text-ink uppercase tracking-tighter">{doc.filename}</span>
             </div>
             <div className="flex items-center gap-2">
               {doc.status === 'ready' || !doc.status ? (
-                <span className="flex items-center gap-1 text-[10px] font-bold text-green-600 bg-green-50 px-2 py-1 rounded">
-                  <CheckCircle2 className="w-3 h-3" /> READY
-                </span>
+                <span className="hud-badge pass">READY</span>
               ) : (
-                <span className="flex items-center gap-1 text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">
+                <span className="hud-badge medium flex items-center gap-1">
                   <Clock className="w-3 h-3 animate-spin" /> INDEXING
                 </span>
               )}

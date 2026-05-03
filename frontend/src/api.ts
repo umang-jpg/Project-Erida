@@ -33,6 +33,11 @@ export async function createSession(name: string): Promise<Session> {
   );
 }
 
+export async function getSession(id: string): Promise<Session> {
+  return parseJson(fetch(`${API_BASE}/sessions/${id}`));
+}
+
+
 export async function uploadDocuments(sessionId: string, files: File[]): Promise<Document[]> {
   const formData = new FormData();
   formData.append("session_id", sessionId);
@@ -49,7 +54,7 @@ export async function listDocuments(sessionId: string): Promise<Document[]> {
   return parseJson(fetch(`${API_BASE}/documents?session_id=${encodeURIComponent(sessionId)}`));
 }
 
-export async function createReport(sessionId: string, frameworkId: string): Promise<Report> {
+export async function createReport(sessionId: string, frameworkId: string): Promise<{ report_id: string }> {
   return parseJson(
     fetch(`${API_BASE}/reports`, {
       method: "POST",
@@ -59,13 +64,23 @@ export async function createReport(sessionId: string, frameworkId: string): Prom
   );
 }
 
-export async function seedDemo(): Promise<{ session: Session; report: Report }> {
+export async function getReport(id: string): Promise<Report> {
+  return parseJson(fetch(`${API_BASE}/reports/${id}`));
+}
+
+export async function getReportStatus(id: string): Promise<{ status: string; completed_controls: number; total_controls: number; overall_score?: number }> {
+  return parseJson(fetch(`${API_BASE}/reports/${id}/status`));
+}
+
+
+export async function seedDemo(): Promise<{ session_id: string; report_id: string }> {
   return parseJson(
     fetch(`${API_BASE}/demo/seed`, {
       method: "POST",
     }),
   );
 }
+
 
 export async function sendChat(sessionId: string, message: string, reportId?: string): Promise<ChatResponse> {
   return parseJson(

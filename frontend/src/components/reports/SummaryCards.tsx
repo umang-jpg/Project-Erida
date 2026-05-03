@@ -3,22 +3,21 @@ import { useSessionStore } from '../../store/useSessionStore';
 
 export default function SummaryCards() {
   const { report } = useSessionStore();
-  
   if (!report) return null;
 
   const stats = [
-    { label: 'Pass', value: report.summary.pass_count, color: 'text-green-600 bg-green-50' },
-    { label: 'Partial', value: report.summary.partial_count, color: 'text-amber-600 bg-amber-50' },
-    { label: 'Fail', value: report.summary.fail_count, color: 'text-red-600 bg-red-50' },
-    { label: 'Missing', value: report.summary.insufficient_evidence_count, color: 'text-gray-600 bg-gray-50' },
+    { label: 'PASS', value: report.pass_count, color: 'text-ok' },
+    { label: 'PARTIAL', value: report.partial_count, color: 'text-warn' },
+    { label: 'FAIL', value: report.fail_count, color: 'text-bad' },
+    { label: 'MISSING', value: report.insufficient_count, color: 'text-ink-muted' },
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {stats.map((stat) => (
-        <div key={stat.label} className={`p-5 rounded-2xl flex flex-col items-center justify-center border border-white/20 shadow-sm ${stat.color}`}>
-          <span className="text-xs font-bold uppercase tracking-widest opacity-60">{stat.label}</span>
-          <strong className="text-4xl font-black mt-1 tracking-tight">{stat.value}</strong>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      {stats.map((s) => (
+        <div key={s.label} className="panel text-center animate-pulse-glow">
+          <div className="panel-label">{s.label}</div>
+          <div className={`font-mono text-3xl font-bold ${s.color}`} style={{ textShadow: '0 0 10px currentColor' }}>{s.value}</div>
         </div>
       ))}
     </div>

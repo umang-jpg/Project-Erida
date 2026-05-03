@@ -36,43 +36,29 @@ export type Finding = {
   id: string;
   report_id: string;
   control_id: string;
-  control_name: string;
-  control_description: string;
-  severity: "critical" | "high" | "medium" | "low";
-  status: "pass" | "partial" | "fail" | "insufficient_evidence" | "error";
+  status: "pass" | "partial" | "fail" | "insufficient_evidence";
   confidence: number;
-  evidence?: string | null;
-  gap?: string | null;
-  remediation?: string | null;
-  provider: string;
-  model: string;
-  source_refs: string[];
-  created_at: string;
-};
-
-export type ReportSummary = {
-  total_controls: number;
-  pass_count: number;
-  partial_count: number;
-  fail_count: number;
-  insufficient_evidence_count: number;
-  score: number;
-  executive_summary: string;
-  top_gaps: string[];
+  evidence: string;
+  gap: string;
+  remediation: string;
 };
 
 export type Report = {
   id: string;
   session_id: string;
   framework_id: string;
-  framework_name: string;
-  status: string;
-  provider: string;
-  model: string;
-  created_at: string;
-  summary: ReportSummary;
+  framework_name?: string; // Optional helper
+  status: "running" | "complete" | "error";
+  overall_score: number | null;
+  pass_count: number;
+  fail_count: number;
+  partial_count: number;
+  insufficient_count: number;
+  executive_summary: string;
   findings: Finding[];
+  created_at: string;
 };
+
 
 export type ChatMessage = {
   id: string;

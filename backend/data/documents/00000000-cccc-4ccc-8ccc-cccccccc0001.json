@@ -1,0 +1,65 @@
+{
+  "id": "00000000-cccc-4ccc-8ccc-cccccccc0001",
+  "session_id": "00000000-aaaa-4aaa-8aaa-aaaaaaaa0001",
+  "filename": "privacy-policy.pdf",
+  "file_type": "pdf",
+  "status": "ready",
+  "parsed_text": "Privacy Policy · Example Corp Ltd (Controller)\nEffective date: January 2026\n\nIntroduction\n------------\nThis policy describes how Example Corp collects, uses, stores, shares, retains, secures,\nand destroys personal information when individuals use hosted software, subscribe to newsletters,\nengage support, participate in webinars, navigate marketing sites, or interact with integrations.\nWe endeavor to honor EU/UK GDPR, California CPRA-aligned practices, and other applicable laws.\n\n\nCore purposes & lawful bases (Article 6)\n----------------------------------------\nPersonal data powers: (i) onboarding and provisioning accounts under contracts with business customers,\n(ii) product usage telemetry that keeps services reliable where supported by legitimate interest balanced against user rights,\n(iii) precise marketing channels only where opt-in consent is collected with granular toggles withdrawable anytime,\n(iv) fulfilling legal bookkeeping, tax enforcement, lawful requests from courts, regulators, auditors,\n(v) safeguarding infrastructure by detecting intrusion and fraud using security monitoring with minimization safeguards.\n\nIndividuals who represent corporate customers enter personal data incidental to contracting; we mirror instructions from their employers when acting as processor.\n\n\nTransparency & fairness (Articles 12-14)\n---------------------------------------\nWe publish layered notices: concise tables for executives and detailed annexes attorneys can cite.\nCorporate administrators receive onboarding emails pointing to Annex A (purposes, categories, recipients, retention ranges)\nand Annex B (subprocessors and transfer tools). When data is received indirectly from integration partners,\nwe notify affected users within 30 days unless a statutory exception applies and we document the rationale.\n\n\nData subject rights (Articles 15-20)\n-----------------------------------\nSelf-service consoles allow access, rectification, export of profile, preferences, recent activity in JSON (portability),\nand restricted processing when disputes exist. Erasure requests may be submitted via privacy@example.com;\nwe confirm identity, queue deletion, and communicate exceptions (tax, anti-fraud, litigation holds) with plain-language reasoning.\nUsers may withdraw marketing consent through the preference center; transactional notices continue as required by law.\n\n\nInternational transfers\n----------------------\nGlobal infrastructure may process data in the EU, UK, US, and India. We rely on approved transfer mechanisms with customers\nand describe supplemental measures at a high level (encryption, access reviews, vendor checks), though updated SCCs and TIAs\nare still being appended to customer contracts during the current procurement cycle.\n\n\nSecurity at a glance (Article 32)\n--------------------------------\nWe encrypt sensitive database fields at rest, require TLS 1.2+ for transit, enforce MFA for administrative access,\noperate vulnerability scanning, and maintain an incident response roster. Formal key rotation metrics and independent pen-test\nsummaries are published internally but not yet attached to this external policy.\n\n\nContact\n-------\nPrivacy Office: privacy@example.com · Data Protection Lead: dpo@example.com · EU representative: eu-rep@example.com",
+  "chunks": [
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0001",
+      "chunk_index": 0,
+      "content": "Privacy Policy · Example Corp Ltd (Controller)\nEffective date: January 2026\n\nIntroduction\n------------\nThis policy describes how Example Corp collects, uses, stores, shares, retains, secures,\nand destroys personal information when individuals use hosted software, subscribe to newsletters,\nengage support, participate in webinars, navigate marketing sites, or interact with integrations.\nWe endeavor to honor EU/UK GDPR, California CPRA-aligned practices, and other applicable laws.\n\n\nCore purposes &",
+      "source_ref": "privacy-policy.pdf lines 1-12"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0001",
+      "chunk_index": 1,
+      "content": "to honor EU/UK GDPR, California CPRA-aligned practices, and other applicable laws.\n\n\nCore purposes & lawful bases (Article 6)\n----------------------------------------\nPersonal data powers: (i) onboarding and provisioning accounts under contracts with business customers,\n(ii) product usage telemetry that keeps services reliable where supported by legitimate interest balanced against user rights,\n(iii) precise marketing channels only where opt-in consent is collected with granular toggles withdraw",
+      "source_ref": "privacy-policy.pdf lines 9-16"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0001",
+      "chunk_index": 2,
+      "content": "ii) precise marketing channels only where opt-in consent is collected with granular toggles withdrawable anytime,\n(iv) fulfilling legal bookkeeping, tax enforcement, lawful requests from courts, regulators, auditors,\n(v) safeguarding infrastructure by detecting intrusion and fraud using security monitoring with minimization safeguards.\n\nIndividuals who represent corporate customers enter personal data incidental to contracting; we mirror instructions from their employers when acting as processor",
+      "source_ref": "privacy-policy.pdf lines 16-20"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0001",
+      "chunk_index": 3,
+      "content": "data incidental to contracting; we mirror instructions from their employers when acting as processor.\n\n\nTransparency & fairness (Articles 12-14)\n---------------------------------------\nWe publish layered notices: concise tables for executives and detailed annexes attorneys can cite.\nCorporate administrators receive onboarding emails pointing to Annex A (purposes, categories, recipients, retention ranges)\nand Annex B (subprocessors and transfer tools). When data is received indirectly from integr",
+      "source_ref": "privacy-policy.pdf lines 20-27"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0001",
+      "chunk_index": 4,
+      "content": "ranges)\nand Annex B (subprocessors and transfer tools). When data is received indirectly from integration partners,\nwe notify affected users within 30 days unless a statutory exception applies and we document the rationale.\n\n\nData subject rights (Articles 15-20)\n-----------------------------------\nSelf-service consoles allow access, rectification, export of profile, preferences, recent activity in JSON (portability),\nand restricted processing when disputes exist. Erasure requests may be submitte",
+      "source_ref": "privacy-policy.pdf lines 26-34"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0001",
+      "chunk_index": 5,
+      "content": " JSON (portability),\nand restricted processing when disputes exist. Erasure requests may be submitted via privacy@example.com;\nwe confirm identity, queue deletion, and communicate exceptions (tax, anti-fraud, litigation holds) with plain-language reasoning.\nUsers may withdraw marketing consent through the preference center; transactional notices continue as required by law.\n\n\nInternational transfers\n----------------------\nGlobal infrastructure may process data in the EU, UK, US, and India. We re",
+      "source_ref": "privacy-policy.pdf lines 33-41"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0001",
+      "chunk_index": 6,
+      "content": "rs\n----------------------\nGlobal infrastructure may process data in the EU, UK, US, and India. We rely on approved transfer mechanisms with customers\nand describe supplemental measures at a high level (encryption, access reviews, vendor checks), though updated SCCs and TIAs\nare still being appended to customer contracts during the current procurement cycle.\n\n\nSecurity at a glance (Article 32)\n--------------------------------\nWe encrypt sensitive database fields at rest, require TLS 1.2+ for tran",
+      "source_ref": "privacy-policy.pdf lines 39-48"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0001",
+      "chunk_index": 7,
+      "content": "----------------------------\nWe encrypt sensitive database fields at rest, require TLS 1.2+ for transit, enforce MFA for administrative access,\noperate vulnerability scanning, and maintain an incident response roster. Formal key rotation metrics and independent pen-test\nsummaries are published internally but not yet attached to this external policy.\n\n\nContact\n-------\nPrivacy Office: privacy@example.com · Data Protection Lead: dpo@example.com · EU representative: eu-rep@example.com",
+      "source_ref": "privacy-policy.pdf lines 47-55"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0001",
+      "chunk_index": 8,
+      "content": "e.com · Data Protection Lead: dpo@example.com · EU representative: eu-rep@example.com",
+      "source_ref": "privacy-policy.pdf lines 55-55"
+    }
+  ],
+  "error_message": null
+}

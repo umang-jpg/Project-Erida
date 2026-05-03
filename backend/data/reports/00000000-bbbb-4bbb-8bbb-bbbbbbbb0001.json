@@ -1,0 +1,215 @@
+{
+  "id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+  "session_id": "00000000-aaaa-4aaa-8aaa-aaaaaaaa0001",
+  "framework_id": "gdpr-essentials-v1",
+  "status": "complete",
+  "overall_score": 64.0,
+  "pass_count": 11,
+  "fail_count": 5,
+  "partial_count": 4,
+  "insufficient_count": 0,
+  "executive_summary": "Overall posture lands at roughly two-thirds satisfactory: foundational transparency, access, correction, portability, retention, lawful basis, and accountability statements are evidenced in uploaded policies. The largest exposure remains operationalizing objection handling, DPIA thresholds, supervisory breach timelines, subprocessors, and lawful international transfer safeguards. Prioritize closing processor contract gaps, DPIA narratives, objection workflows, and tightening breach escalation documentation before diligence review.",
+  "findings": [
+    {
+      "id": "f0000001-0000-4000-8000-000000000001",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-5",
+      "status": "pass",
+      "confidence": 86,
+      "evidence": "Section 2 states data is collected for described product operations, retained only while accounts stay active, and secured with industry standard controls.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f0000002-0000-4000-8000-000000000002",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-6",
+      "status": "pass",
+      "confidence": 93,
+      "evidence": "Annex A lists core processing purposes with references to contract performance and consent checkboxes during onboarding.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f0000003-0000-4000-8000-000000000003",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-7",
+      "status": "pass",
+      "confidence": 77,
+      "evidence": "Cookie preference center records granular opt-ins and links to withdraw marketing consent at any time.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f0000004-0000-4000-8000-000000000004",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-12",
+      "status": "pass",
+      "confidence": 88,
+      "evidence": "Plain language summary tables describe processing activities with links to deeper legal sections for specialists.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f0000005-0000-4000-8000-000000000005",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-13",
+      "status": "pass",
+      "confidence": 93,
+      "evidence": "Privacy notice enumerates controller identity, purposes, categories, retention ranges, and an email contact for privacy requests.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f0000006-0000-4000-8000-000000000006",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-14",
+      "status": "pass",
+      "confidence": 79,
+      "evidence": "Indirect collection addendum promises notice within 30 days when personal data is obtained from partners.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f0000007-0000-4000-8000-000000000007",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-15",
+      "status": "pass",
+      "confidence": 90,
+      "evidence": "Support portal documents the SAR workflow including identity checks and 30-day acknowledgement targets.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f0000008-0000-4000-8000-000000000008",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-16",
+      "status": "pass",
+      "confidence": 93,
+      "evidence": "Profile settings let users update core attributes; support tickets cover corrections for derived profile fields.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f0000009-0000-4000-8000-000000000009",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-17",
+      "status": "pass",
+      "confidence": 81,
+      "evidence": "Deletion section explains account closure triggers erasure with exceptions for tax and fraud logs with stated retention windows.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f000000a-0000-4000-8000-00000000000a",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-18",
+      "status": "pass",
+      "confidence": 92,
+      "evidence": "Legal hold workflow pauses deletions when litigation flags exist and notifies requesters with expected timelines.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f000000b-0000-4000-8000-00000000000b",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-20",
+      "status": "pass",
+      "confidence": 93,
+      "evidence": "Product export allows JSON download of profile, preferences, and recent activity for authenticated users.",
+      "gap": "",
+      "remediation": ""
+    },
+    {
+      "id": "f000000c-0000-4000-8000-00000000000c",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-21",
+      "status": "fail",
+      "confidence": 71,
+      "evidence": "Marketing opt-out exists but there is no documented path to object to broader product analytics based on legitimate interests.",
+      "gap": "Legitimate interest balancing test, objection intake channel, and documented responses are absent for non-marketing processing.",
+      "remediation": "Publish a legitimate interest assessment, add an objection web form with ticketing, and document decision letters within statutory timelines."
+    },
+    {
+      "id": "f000000d-0000-4000-8000-00000000000d",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-25",
+      "status": "fail",
+      "confidence": 79,
+      "evidence": "Engineering design reviews mention security but do not evidence privacy impact checkpoints for new data uses.",
+      "gap": "Missing privacy review gates, data minimization defaults, and engineering checklists tied to new features or datasets.",
+      "remediation": "Embed privacy review gates in your SDLC with documented minimization defaults and DPIA triggers before launch."
+    },
+    {
+      "id": "f000000e-0000-4000-8000-00000000000e",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-26",
+      "status": "fail",
+      "confidence": 90,
+      "evidence": "Joint marketing programs reference partners without a published allocation of responsibilities or unified contact path.",
+      "gap": "No joint-controller agreement, responsibility matrix, or single point of contact for data subjects.",
+      "remediation": "Execute a joint-controller agreement with clear responsibility split and surface a single privacy inbox for joint activities."
+    },
+    {
+      "id": "f000000f-0000-4000-8000-00000000000f",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-28",
+      "status": "fail",
+      "confidence": 71,
+      "evidence": "Processor exhibit is missing binding instructions, deletion assistance triggers, and audit cooperation clauses beyond generic confidentiality.",
+      "gap": "Processor contract lacks mandatory articles on subprocessors, assistance with subject rights, Security exhibit, flow-down terms, and audit rights.",
+      "remediation": "Update processor schedules with Article 28 clauses covering instructions, breach assistance, deletion, audits, and international transfers."
+    },
+    {
+      "id": "f0000010-0000-4000-8000-000000000010",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-30",
+      "status": "fail",
+      "confidence": 81,
+      "evidence": "No inventory exists for processing activities, categories of data subjects, or cross-border transfers beyond high-level marketing copy.",
+      "gap": "Records of processing missing lawful basis per activity, retention schedules, recipient countries, and DPIA cross references.",
+      "remediation": "Stand up a RoPA template and complete entries for each product surface with retention, transfers, and security measures."
+    },
+    {
+      "id": "f0000011-0000-4000-8000-000000000011",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-32",
+      "status": "partial",
+      "confidence": 66,
+      "evidence": "Encryption is mentioned for data at rest and TLS for transit but key rotation, logging, and vendor assurance evidence are thin.",
+      "gap": "Security narrative lacks detail on key management, vulnerability management cadence, monitoring, and supplier due diligence artifacts.",
+      "remediation": "Expand security annex with crypto standards, logging, pentest cadence, and vendor SOC review requirements tied to PHI/PII risk."
+    },
+    {
+      "id": "f0000012-0000-4000-8000-000000000012",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-33",
+      "status": "partial",
+      "confidence": 77,
+      "evidence": "Incident runbook references internal escalation but omits supervisory authority notification timelines and decision records.",
+      "gap": "No 72-hour authority notification workflow, evidence of testing, or template communications for high risk incidents.",
+      "remediation": "Add regulatory notification playbook with 72-hour timer, RACI, and rehearsed tabletop evidence."
+    },
+    {
+      "id": "f0000013-0000-4000-8000-000000000013",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-35",
+      "status": "partial",
+      "confidence": 88,
+      "evidence": "High risk processing is acknowledged qualitatively yet no structured DPIA record, mitigations, or consultation notes are attached.",
+      "gap": "DPIA threshold analysis missing; no documented necessity/proportionality discussion or residual risk sign-off.",
+      "remediation": "Complete DPIAs for higher risk flows, attach mitigation plans, and file consultation outcomes where required."
+    },
+    {
+      "id": "f0000014-0000-4000-8000-000000000014",
+      "report_id": "00000000-bbbb-4bbb-8bbb-bbbbbbbb0001",
+      "control_id": "GDPR-Art-44",
+      "status": "partial",
+      "confidence": 68,
+      "evidence": "International customers are served but SCCs, transfer impact assessments, and supplementary measures are not attached to the DPA.",
+      "gap": "Transfer mechanism not specified; supplementary measures and importer obligations absent from contractual pack.",
+      "remediation": "Adopt SCCs or equivalent, perform TIAs, and document supplementary measures such as encryption and access minimization."
+    }
+  ],
+  "created_at": "2026-05-03T10:33:54.679245Z"
+}

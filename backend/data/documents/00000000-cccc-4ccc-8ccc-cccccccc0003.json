@@ -1,0 +1,35 @@
+{
+  "id": "00000000-cccc-4ccc-8ccc-cccccccc0003",
+  "session_id": "00000000-aaaa-4aaa-8aaa-aaaaaaaa0001",
+  "filename": "security-procedures.txt",
+  "file_type": "txt",
+  "status": "ready",
+  "parsed_text": "Security & Operations Overview (Internal)\nClassification: Internal · Last review: Q1 2026\n\nAccess control\n--------------\nRole-based access governs production systems. Contractors receive time-bound accounts with manager approval.\nQuarterly access reviews sample high-risk roles; exceptions require CISO sign-off.\n\nLogging & monitoring\n--------------------\nCentralized logging captures authentication, configuration changes, and administrative actions. Alerts route to the on-call rotation.\nPlaybooks document triage; threat intel feeds inform detections.\n\nBackup & availability\n---------------------\nCustomer databases replicate across availability zones. Backups are encrypted, tested quarterly, and retained per policy schedules.\n\nIncident response\n----------------\nRunbooks exist for ransomware, credential leaks, and third-party compromise. Internal drills occur twice yearly.\nGuidance for supervisory notification is under legal refresh to include explicit 72-hour timers and evidence retention.\n\nVulnerability management\n------------------------\nCritical CVEs require remediation within 7 days where exploitable; others follow risk-based SLAs tracked in the ITSM tool.\n\nVendor management\n------------------\nCritical vendors undergo security review; SOC 2 reports are requested annually. AI subprocessors are being cataloged with data flow diagrams.",
+  "chunks": [
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0003",
+      "chunk_index": 0,
+      "content": "Security & Operations Overview (Internal)\nClassification: Internal · Last review: Q1 2026\n\nAccess control\n--------------\nRole-based access governs production systems. Contractors receive time-bound accounts with manager approval.\nQuarterly access reviews sample high-risk roles; exceptions require CISO sign-off.\n\nLogging & monitoring\n--------------------\nCentralized logging captures authentication, configuration changes, and administrative actions. Alerts route to the on-call rotation.\nPlaybooks ",
+      "source_ref": "security-procedures.txt lines 1-12"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0003",
+      "chunk_index": 1,
+      "content": " configuration changes, and administrative actions. Alerts route to the on-call rotation.\nPlaybooks document triage; threat intel feeds inform detections.\n\nBackup & availability\n---------------------\nCustomer databases replicate across availability zones. Backups are encrypted, tested quarterly, and retained per policy schedules.\n\nIncident response\n----------------\nRunbooks exist for ransomware, credential leaks, and third-party compromise. Internal drills occur twice yearly.\nGuidance for superv",
+      "source_ref": "security-procedures.txt lines 11-21"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0003",
+      "chunk_index": 2,
+      "content": "redential leaks, and third-party compromise. Internal drills occur twice yearly.\nGuidance for supervisory notification is under legal refresh to include explicit 72-hour timers and evidence retention.\n\nVulnerability management\n------------------------\nCritical CVEs require remediation within 7 days where exploitable; others follow risk-based SLAs tracked in the ITSM tool.\n\nVendor management\n------------------\nCritical vendors undergo security review; SOC 2 reports are requested annually. AI subp",
+      "source_ref": "security-procedures.txt lines 20-29"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0003",
+      "chunk_index": 3,
+      "content": "------------\nCritical vendors undergo security review; SOC 2 reports are requested annually. AI subprocessors are being cataloged with data flow diagrams.",
+      "source_ref": "security-procedures.txt lines 28-29"
+    }
+  ],
+  "error_message": null
+}

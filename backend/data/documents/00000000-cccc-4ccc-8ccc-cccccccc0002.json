@@ -1,0 +1,47 @@
+{
+  "id": "00000000-cccc-4ccc-8ccc-cccccccc0002",
+  "session_id": "00000000-aaaa-4aaa-8aaa-aaaaaaaa0001",
+  "filename": "data-processing-agreement.md",
+  "file_type": "md",
+  "status": "ready",
+  "parsed_text": "Data Processing Agreement (DPA) · Example Corp & Customer\nVersion 0.9 — draft for demo purposes\n\n1. Scope & roles\nThe parties acknowledge Customer is the controller and Example Corp processes personal data only on documented instructions\nunless applicable law requires otherwise (in which case Example Corp informs Customer unless legally prohibited).\n\n2. Details of processing\nCategories include account administrators, end users, support ticket content, product analytics events, and audit logs.\nProcessing supports hosted service delivery, security monitoring, product improvement within consent or contract limitations,\nand finance operations. Duration follows the Main Agreement term plus a 90-day wind-down for backups.\n\n3. Confidentiality & personnel\nPersonnel with access are bound by confidentiality and complete annual privacy training; access follows least privilege with quarterly reviews.\n\n4. Security\nExample Corp maintains administrative, technical, and organizational measures including encryption, logging, backup, and vendor reviews.\nCustomer may request the latest security whitepaper; deeper audit rights are subject to schedule and fees.\n\n5. Subprocessors\nA current list is published at trust.example.com/subprocessors with email notice for material changes; Customer may object on reasonable grounds.\n\n6. Cross-border transfers\nTransfers rely on appropriate safeguards (SCCs, UK IDTA, or adequacy). Supplementary measures are under legal review; attachment will follow counter-signature.\n\n7. Assistance\nExample Corp assists with subject rights where technically feasible, provides breach summaries when discovered, and supports Customer DPIAs on request with additional fees.\n\n8. Return & deletion\nUpon termination Example Corp deletes or returns data within 60 days except where law requires retention; Customer may request a deletion certificate.\n\n9. Limitation\nThis DPA is intentionally incomplete for demo scenarios; legal must finalize Article 28 exhibits, audit mechanics, and transfer impact artifacts.",
+  "chunks": [
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0002",
+      "chunk_index": 0,
+      "content": "Data Processing Agreement (DPA) · Example Corp & Customer\nVersion 0.9 — draft for demo purposes\n\n1. Scope & roles\nThe parties acknowledge Customer is the controller and Example Corp processes personal data only on documented instructions\nunless applicable law requires otherwise (in which case Example Corp informs Customer unless legally prohibited).\n\n2. Details of processing\nCategories include account administrators, end users, support ticket content, product analytics events, and audit logs.\nPr",
+      "source_ref": "data-processing-agreement.md lines 1-10"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0002",
+      "chunk_index": 1,
+      "content": "ount administrators, end users, support ticket content, product analytics events, and audit logs.\nProcessing supports hosted service delivery, security monitoring, product improvement within consent or contract limitations,\nand finance operations. Duration follows the Main Agreement term plus a 90-day wind-down for backups.\n\n3. Confidentiality & personnel\nPersonnel with access are bound by confidentiality and complete annual privacy training; access follows least privilege with quarterly reviews",
+      "source_ref": "data-processing-agreement.md lines 9-14"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0002",
+      "chunk_index": 2,
+      "content": "ntiality and complete annual privacy training; access follows least privilege with quarterly reviews.\n\n4. Security\nExample Corp maintains administrative, technical, and organizational measures including encryption, logging, backup, and vendor reviews.\nCustomer may request the latest security whitepaper; deeper audit rights are subject to schedule and fees.\n\n5. Subprocessors\nA current list is published at trust.example.com/subprocessors with email notice for material changes; Customer may object ",
+      "source_ref": "data-processing-agreement.md lines 14-21"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0002",
+      "chunk_index": 3,
+      "content": "shed at trust.example.com/subprocessors with email notice for material changes; Customer may object on reasonable grounds.\n\n6. Cross-border transfers\nTransfers rely on appropriate safeguards (SCCs, UK IDTA, or adequacy). Supplementary measures are under legal review; attachment will follow counter-signature.\n\n7. Assistance\nExample Corp assists with subject rights where technically feasible, provides breach summaries when discovered, and supports Customer DPIAs on request with additional fees.\n\n8",
+      "source_ref": "data-processing-agreement.md lines 21-29"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0002",
+      "chunk_index": 4,
+      "content": "es breach summaries when discovered, and supports Customer DPIAs on request with additional fees.\n\n8. Return & deletion\nUpon termination Example Corp deletes or returns data within 60 days except where law requires retention; Customer may request a deletion certificate.\n\n9. Limitation\nThis DPA is intentionally incomplete for demo scenarios; legal must finalize Article 28 exhibits, audit mechanics, and transfer impact artifacts.",
+      "source_ref": "data-processing-agreement.md lines 27-33"
+    },
+    {
+      "document_id": "00000000-cccc-4ccc-8ccc-cccccccc0002",
+      "chunk_index": 5,
+      "content": " and transfer impact artifacts.",
+      "source_ref": "data-processing-agreement.md lines 33-33"
+    }
+  ],
+  "error_message": null
+}

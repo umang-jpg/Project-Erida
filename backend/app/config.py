@@ -8,7 +8,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     app_name: str = "ComplianceAutopilot"
 
-    cors_origins: str = "http://localhost:5173"
+    cors_origins: str = "http://localhost:5173,http://localhost:5174,http://localhost:5175"
 
     app_data_dir: str = Field(
         default_factory=lambda: str(Path(__file__).resolve().parent.parent / "data")

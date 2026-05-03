@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Literal
+from typing import Literal, Optional, Union
 
 from pydantic import BaseModel, Field
 
@@ -35,9 +35,9 @@ class Document(BaseModel):
     filename: str
     file_type: Literal["pdf", "txt", "md"]
     status: DocumentStatus
-    parsed_text: str | None = None
+    parsed_text: Optional[str] = None
     chunks: list[Chunk] = Field(default_factory=list)
-    error_message: str | None = None
+    error_message: Optional[str] = None
 
 
 class Control(BaseModel):
@@ -72,7 +72,7 @@ class Report(BaseModel):
     session_id: str
     framework_id: str
     status: ReportWorkflowStatus
-    overall_score: float | None = None
+    overall_score: Optional[float] = None
     pass_count: int = 0
     fail_count: int = 0
     partial_count: int = 0
@@ -122,11 +122,11 @@ class ReportStatusPayload(BaseModel):
     status: ReportWorkflowStatus
     completed_controls: int
     total_controls: int
-    overall_score: float | None = None
+    overall_score: Optional[float] = None
 
 
 class ReportSummaryPayload(BaseModel):
-    overall_score: float | None = None
+    overall_score: Optional[float] = None
     pass_count: int
     fail_count: int
     partial_count: int

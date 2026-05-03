@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import asyncio
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import BackgroundTasks, Depends, FastAPI, File, HTTPException, Query, UploadFile
@@ -83,7 +83,7 @@ async def create_session(
     store: JsonDirectoryStore = Depends(get_store),
 ) -> Session:
     session_id = store.new_uuid4()
-    now = datetime.now(UTC)
+    now = datetime.now(timezone.utc)
     session = Session(id=session_id, name=payload.name, created_at=now)
     store.save("sessions", session_id, session.model_dump(mode="json"))
     return session
@@ -211,7 +211,7 @@ async def create_report(
         raise HTTPException(status_code=404, detail=str(exc)) from exc
 
     report_id = store.new_uuid4()
-    now = datetime.now(UTC)
+    now = datetime.now(timezone.utc)
     report = Report(
         id=report_id,
         session_id=payload.session_id,

@@ -11,7 +11,7 @@ _ALLOWED = {".pdf", ".txt", ".md"}
 LiteralFileType = Literal["pdf", "txt", "md"]
 
 
-@dataclass(slots=True)
+@dataclass
 class ParseOutcome:
     parsed_text: str
     chunks: list[Chunk]

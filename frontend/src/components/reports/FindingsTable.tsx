@@ -54,9 +54,8 @@ export default function FindingsTable() {
     setMessages(prev => [...prev, {
       id: `local-${Date.now()}`,
       session_id: currentSession.id,
-      role: 'user',
+      role: 'user' as const,
       content: question,
-      citations: [],
       created_at: new Date().toISOString()
     }]);
   };
@@ -111,7 +110,7 @@ export default function FindingsTable() {
             <div key={finding.id} className={`panel hover:border-cyan transition-all group ${isExpanded ? 'scan-line border-cyan' : ''}`}>
               <button 
                 className="w-full flex justify-between items-center text-left outline-none"
-                onClick={() => setExpandedId(isExpanded ? null : finding.id)}
+                onClick={() => setExpandedId(isExpanded ? null : finding.id ?? null)}
               >
                 <div className="flex items-center gap-6">
                   <Badge variant={finding.status.toLowerCase() as any}>{finding.status}</Badge>
@@ -162,7 +161,7 @@ export default function FindingsTable() {
                   <div className="flex gap-3 pt-4 border-t border-cyan-dim">
                     <button 
                       className="hud-btn primary flex items-center gap-2"
-                      onClick={() => handleDraftFix(finding.id)}
+                      onClick={() => finding.id && handleDraftFix(finding.id)}
                     >
                       <Wrench className="w-4 h-4" /> DRAFT FIX
                     </button>

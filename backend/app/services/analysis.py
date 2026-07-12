@@ -68,8 +68,8 @@ async def run_analysis(
                     report["findings"].append(finding)
                     store.save("reports", report_id, report)
                 
-                # Small delay between controls
-                await asyncio.sleep(0.5)
+                # Delay between controls to stay under Groq rate limits
+                await asyncio.sleep(2.0)
                 
             except Exception as e:
                 print(f"Error processing control {control.control_id}: {e}")

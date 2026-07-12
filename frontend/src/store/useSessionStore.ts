@@ -20,7 +20,7 @@ interface SessionState {
   setFrameworks: (frameworks: Framework[]) => void;
   setSelectedFrameworkId: (id: string) => void;
   setFiles: (files: File[]) => void;
-  setDocuments: (documents: any[]) => void;
+  setDocuments: (documents: any[] | ((prev: any[]) => any[])) => void;
   setReport: (report: Report | null | ((prev: Report | null) => Report | null)) => void;
   setMessages: (messages: ChatMessage[] | ((prev: ChatMessage[]) => ChatMessage[])) => void;
   setStatusText: (text: string) => void;
@@ -46,7 +46,9 @@ export const useSessionStore = create<SessionState>((set) => ({
   setFrameworks: (frameworks) => set({ frameworks }),
   setSelectedFrameworkId: (selectedFrameworkId) => set({ selectedFrameworkId }),
   setFiles: (files) => set({ files }),
-  setDocuments: (documents) => set({ documents }),
+  setDocuments: (documents) => set((state) => ({ 
+    documents: typeof documents === 'function' ? documents(state.documents) : documents 
+  })),
   setReport: (report) => set((state) => ({ 
     report: typeof report === 'function' ? report(state.report) : report 
   })),

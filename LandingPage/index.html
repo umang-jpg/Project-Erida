@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERIDA | Cosmic Intelligence</title>
+    <meta name="description" content="ERIDA - A cinematic landing page inspired by the Eridanus constellation. Explore cosmic river intelligence.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Load Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Load Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div class="erida-app">
+        <!-- Parallax Background Layer -->
+        <div class="background-wrapper" id="parallax-bg">
+            <div class="bg-image"></div>
+            <div class="mid-layer" id="mid-parallax"></div>
+            <div class="bg-overlay"></div>
+            <canvas id="circuit-canvas"></canvas>
+        </div>
+
+        <!-- Section 1: Hero -->
+        <section id="hero">
+            <div id="particle-canvas-container"></div>
+            
+            <div class="hero-content">
+                <h2 class="glitch-subheading" id="subheading" data-text="THE FUTURE OF COMPLIANCE CHECK">THE FUTURE OF COMPLIANCE CHECK</h2>
+                <p class="tagline" id="tagline">a constellation of intelligence, flowing forward</p>
+                <button class="explore-btn" id="explore-btn">EXPLORE</button>
+            </div>
+        </section>
+
+        <!-- Section 2: Placeholder for next page -->
+        <section id="home-section">
+            <div class="home-content">
+                <h2>DASHBOARD</h2>
+                <p>Welcome to the core of Erida.</p>
+            </div>
+        </section>
+
+        <!-- Ambient Details -->
+        <div id="stars-container"></div>
+        <div class="vignette"></div>
+
+        <!-- Transition Overlay -->
+        <canvas id="dissolve-overlay"></canvas>
+    </div>
+
+    <!-- Scripts -->
+    <script src="ParallaxBg.js"></script>
+    <script src="CircuitRiver.js"></script>
+    <script src="ParticleText.js"></script>
+    <script src="DissolveTransition.js"></script>
+    <script>
+        // Entry point & orchestration
+        window.addEventListener('DOMContentLoaded', () => {
+            // Trigger entry animations
+            setTimeout(() => {
+                document.getElementById('subheading').classList.add('animate-in');
+                document.getElementById('tagline').classList.add('animate-in');
+                document.getElementById('explore-btn').classList.add('animate-in');
+            }, 500);
+
+            // Handle Explore Button Click
+            document.getElementById('explore-btn').addEventListener('click', () => {
+                if (window.startDissolveTransition) {
+                    window.startDissolveTransition();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .env
+.env.example
 .DS_Store
 backend/data/
 __pycache__/

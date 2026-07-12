@@ -22,6 +22,11 @@ class Settings(BaseSettings):
     groq_base_url: str = "https://api.groq.com/openai/v1"
     groq_model: str = "llama3-70b-8192"
 
+    # OpenRouter API credentials (second provider for load splitting)
+    openrouter_api_key: str | None = None
+    openrouter_base_url: str = "https://openrouter.ai/api/v1"
+    openrouter_model: str = "meta-llama/llama-3.1-8b-instruct:free"
+
     model_config = SettingsConfigDict(
         env_file=str(Path(__file__).resolve().parent.parent / ".env"),
         env_file_encoding="utf-8",

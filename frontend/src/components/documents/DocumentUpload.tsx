@@ -2,6 +2,7 @@ import React from 'react';
 import { Upload } from 'lucide-react';
 import { useSessionStore } from '../../store/useSessionStore';
 import { uploadDocument } from '../../api';
+import type { Document } from '../../types';
 
 export default function DocumentUpload() {
   const { currentSession, setDocuments, setStatusText, setBusy, busy } = useSessionStore();
@@ -17,7 +18,7 @@ export default function DocumentUpload() {
       const uploadPromises = files.map(file => uploadDocument(currentSession.id, file));
       const uploadedDocs = await Promise.all(uploadPromises);
       
-      setDocuments(prev => [...prev, ...uploadedDocs]);
+      setDocuments((prev: Document[]) => [...prev, ...uploadedDocs]);
       setStatusText(`Successfully uploaded ${files.length} document(s)`);
     } catch (err: any) {
       console.error(err);

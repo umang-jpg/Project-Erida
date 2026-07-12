@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import { gsap } from 'gsap';
 import { BurnTransition } from '../utils/BurnTransition';
 import StarNestBackground from '../components/landing/StarNestBackground';
+import { DecryptHeroText } from '../components/ui/DecryptHeroText';
 
 
 const LandingPage: React.FC = () => {
@@ -465,7 +466,7 @@ const LandingPage: React.FC = () => {
               textAlign: 'center'
             }}
           >
-            AI-POWERED COMPLIANCE. ZERO GUESSWORK.
+            <DecryptHeroText>AI-POWERED COMPLIANCE. ZERO GUESSWORK.</DecryptHeroText>
           </p>
 
           <button 
